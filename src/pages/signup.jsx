@@ -90,7 +90,7 @@ function Signup() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Artist or Renter?</label>
+        <label className="block text-sm font-medium text-gray-700">Select Role?</label>
         <select
     value={role}
     onChange={(e) => setRole(e.target.value)}
@@ -100,6 +100,7 @@ function Signup() {
     <option value="" disabled>Select your role</option>
     <option value="artist">Artist</option>
     <option value="renter">Renter</option>
+    <option value="renter">Admin</option>
   </select>
       </div>
 
