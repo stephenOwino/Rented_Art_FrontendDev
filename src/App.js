@@ -7,7 +7,7 @@ import Signup from './pages/signup';
 import ArtPieces from './pages/artpieces';
 import ProductPage from './pages/productpage';
 import { ProductProvider } from './components/productcontext';
-import Main from './pages/main';
+import Main from './pages/min';
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       
             <Routes>
 <Route path="/" element={<Home />} />
-<Route path="/main" element={<Main />} />
+<Route path="/min" element={<Main />} />
   <Route path="/login" element={<Login />} />
   <Route path="/signup" element={<Signup/>} />
   <Route path="/artpieces" element={<ArtPieces />} />
