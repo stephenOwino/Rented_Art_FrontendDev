@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function Signup() {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
   const [password, setPassword] = useState('');
@@ -26,19 +27,23 @@ function Signup() {
     }
   
     const userData = {
-      firstname,
-      lastname,
-      email,
-      password,
-      role
+      "username": username,
+      "email": email,
+      "first_name": firstname,
+      "last_name": lastname,
+      "role": role,
+      "password": password,
+     
     };
   
+    
+
     try {
-      const response = await axios.post('/api/signup', userData); // Pass userData here
+      const response = await axios.post('http://127.0.0.1:8000/api/register/', userData);
       localStorage.setItem('token', response.data.token);
-      window.location.href = '/login';
+      navigate('/login');
     } catch (error) {
-      setError(error.message);
+      setError(error.response ? error.response.data.detail : error.message);
     }
   
     navigate('/login');
@@ -76,6 +81,20 @@ function Signup() {
           required
         />
       </div>
+
+      
+      <div>
+        <label className="block text-sm font-medium text-gray-700"> Username</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          placeholder="Enter Username"
+          required
+        />
+      </div>
+
 
       <div>
         <label className="block text-sm font-medium text-gray-700">Email</label>

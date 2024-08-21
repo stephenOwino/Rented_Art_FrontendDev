@@ -21,11 +21,11 @@ function Login() {
     };
   
     try {
-      const response = await axios.post('/api/login', userData); // Pass userData here
+      const response = await axios.post('http://127.0.0.1:8000/api/login', userData); // Pass userData here
       localStorage.setItem('token', response.data.token);
       window.location.href = '/';
     } catch (error) {
-      setError(error.message);
+      setError(error.response ? error.response.data.detail : error.message);
     }
   
     navigate('/');
