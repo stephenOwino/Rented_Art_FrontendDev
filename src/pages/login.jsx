@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+
+
 function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -16,8 +17,20 @@ function Login() {
 		};
 
 		try {
-			const response = await axios.post("/api/login", userData); // Pass userData here
-			localStorage.setItem("token", response.data.token);
+			const response = await fetch("/api/login", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(userData),
+			});
+
+			if (!response.ok) {
+				throw new Error("Network response was not ok");
+			}
+
+			const data = await response.json();
+			localStorage.setItem("token", data.token);
 			window.location.href = "/";
 		} catch (error) {
 			setError(error.message);

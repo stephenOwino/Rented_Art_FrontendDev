@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -40,11 +39,24 @@ function Signup() {
     
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/register/', userData);
-      localStorage.setItem('token', response.data.token);
+      const response = await fetch('http://127.0.0.1:8000/api/register/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Failed to register');
+      }
+
+      const data = await response.json();
+      localStorage.setItem('token', data.token);
       navigate('/login');
     } catch (error) {
-      setError(error.response ? error.response.data.detail : error.message);
+      setError(error.message);
     }
   
     navigate('/login');
