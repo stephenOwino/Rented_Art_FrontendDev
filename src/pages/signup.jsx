@@ -130,9 +130,9 @@ function Signup() {
     required
   >
     <option value="" disabled>Select your role</option>
-    <option value="artist">Artist</option>
-    <option value="renter">Renter</option>
-    <option value="renter">Admin</option>
+    <option value="ARTIST">Artist</option>
+    <option value="RENTER">Renter</option>
+    <option value="ADMIN">Admin</option>
   </select>
       </div>
 

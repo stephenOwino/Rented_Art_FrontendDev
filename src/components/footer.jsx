@@ -6,7 +6,7 @@ const Footer = () => {
   return (
    <div>
   {  /* large screen */  }
-    <div className="hidden md:flex flex-col px-[60px] pb-[32px] pt-[80px] bg-gray-100 h-[249px] gap-[49px] text-[#6C7275]   bottom-0 left-0 w-full bg-gray-800 text-white p-4">
+    <div className="hidden md:flex flex-col px-[60px] pb-[32px] pt-[80px] bg-transparent h-[249px] gap-[49px] text-[#6C7275]   bottom-0 left-0 w-full bg-gray-800 text-white p-4">
 
     <div className='h-[32px]   justify-between flex flex-row'>
     <div className='text-3xl drop-shadow-lg -mt-4 text-indigo-700'>
@@ -69,7 +69,7 @@ const Footer = () => {
   
 
       { /* mobile screen */  }
-   <div className=" md:hidden flex flex-col  px-[32px] py-[48px] text-[#232627] bg-gray-100 w-screen h-[609px] bottom-0 left-0 w-full bg-gray-800 text-white p-4">
+   <div className=" md:hidden flex flex-col  px-[32px] py-[48px] text-[#232627] bg-transparent w-screen h-[609px] bottom-0 left-0 w-full bg-gray-800 text-white p-4">
    
     <div className="  h-[301px] flex flex-col w-auto text-center ">
     <div className='text-xl drop-shadow-lg -mt-4 text-indigo-700'>
@@ -77,7 +77,7 @@ const Footer = () => {
 
 		</div>
 
-      <div className='flex flex-col w-auto gap-[32px] h-[238px] font-inter pt-4'>
+      <div className='flex flex-col w-auto gap-[32px] h-[238px] font-inter pt-4 text-[#232627]'>
       <div className="h-[22px] text-[14px]  font-[400]">
         Home
       </div>
