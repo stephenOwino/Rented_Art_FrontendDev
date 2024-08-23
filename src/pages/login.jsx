@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Login() {
-	const [email, setEmail] = useState("");
+	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(null);
 	const navigate = useNavigate();
@@ -12,12 +12,12 @@ function Login() {
 		e.preventDefault();
 
 		const userData = {
-			email,
+			username,
 			password,
 		};
 
 		try {
-			const response = await fetch("/api/login", {
+			const response = await fetch("http://127.0.0.1:8000/api/login/", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -32,35 +32,44 @@ function Login() {
 			const data = await response.json();
 			localStorage.setItem("token", data.token);
 			window.location.href = "/";
+			navigate("/");
 		} catch (error) {
-			setError(error.message);
+			setError("Invalid username or password. Please try again."); 
 		}
 
-		navigate("/");
+		
 	};
 
 	return (
 		<div className='container mx-auto p-4 pt-12 md:p-12 lg:p-20'>
+
 			<h1 className='text-4xl font-bold mb-4 text-indigo-700 drop-shadow-lg'>
 				<div className='text-5xl drop-shadow-sm text-indigo-700'>
 					𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>
 				</div>
 			</h1>
 
+		
+			{error && (
+				<div className='max-w-md mx-auto mb-4 p-2 text-red-700 bg-red-100 border border-red-400 rounded'>
+					{error}
+				</div>
+			)}
+         
 			<form
 				onSubmit={handleSubmit}
 				className='max-w-md mx-auto p-4 space-y-4 text-left'
 			>
 				<div>
 					<label className='block text-sm font-medium text-gray-700'>
-						Email
+						Username
 					</label>
 					<input
-						type='email'
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
+						type='string'
+						value={username}
+						onChange={(e) => setUsername(e.target.value)}
 						className='mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
-						placeholder='Enter your email'
+						placeholder='Enter your username'
 						required
 					/>
 				</div>

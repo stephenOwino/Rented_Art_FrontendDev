@@ -55,11 +55,12 @@ function Signup() {
       const data = await response.json();
       localStorage.setItem('token', data.token);
       navigate('/login');
+     
     } catch (error) {
       setError(error.message);
     }
   
-    navigate('/login');
+ 
   };
   
 
@@ -70,6 +71,14 @@ function Signup() {
 <h1 className="text-4xl font-bold mb-4 text-indigo-700 drop-shadow-lg">
       <div className='text-5xl drop-shadow-sm text-indigo-700'>𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span></div>
       </h1>
+
+      {error && (
+				<div className='max-w-md mx-auto mb-4 p-2 text-red-700 bg-red-100 border border-red-400 rounded'>
+					{error}
+				</div>
+			)}
+         
+
       <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 space-y-4 text-left">
       <div>
         <label className="block text-sm font-medium text-gray-700"> First Name</label>
