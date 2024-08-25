@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - branch-a
   pull_request:
     branches:
       - main
+      - branch-a
 
 jobs:
   build:
@@ -19,13 +21,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "22" # Update to match your Node.js version
+          node-version: "22" # Ensure this matches your Node.js version
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci # Clean install based on package-lock.json
+
+      - name: Fix vulnerabilities
+        run: npm audit fix # Attempt to fix vulnerabilities
 
       - name: Run tests
-        run: npm test
+        run: npm test -- --verbose # Verbose output for debugging
 
       - name: Build
         run: npm run build
