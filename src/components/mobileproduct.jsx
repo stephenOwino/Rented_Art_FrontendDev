@@ -6,7 +6,7 @@ import { styled } from '@mui/system';
 
 
 const Mobileproduct = () => {
-    const [gridSize, setGridSize] = useState(3); // Initial grid size (3x3)
+ 
 
    
   
