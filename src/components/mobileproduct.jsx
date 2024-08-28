@@ -8,16 +8,12 @@ import { styled } from '@mui/system';
 const Mobileproduct = () => {
     const [gridSize, setGridSize] = useState(3); // Initial grid size (3x3)
 
-    const toggleGrid = () => {
-      setGridSize(gridSize === 3 ? 2 : 3); // Toggle between 3x3 and 2x2 grids
-    };
+   
   
     const gridClassName = `products grid grid-cols-2  `;
-    const [rating, setRating] = useState(0);
   
-    const handleRatingChange = (newRating) => {
-      setRating(newRating);
-    };
+  
+  
    
       const paintings = [
         { img: painting, name: 'michellango', price: '$549.00' },

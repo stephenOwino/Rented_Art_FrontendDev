@@ -15,14 +15,14 @@ const ProductGrid = () => {
   };
 
   const gridClassName = `products grid grid-cols-${gridSize}-gap-1 `;
-  const [rating, setRating] = useState(0);
+ 
 
 console.log( gridSize);
 console.log (gridClassName);
 
-const paintingImages = [painting, painting, // Include all image paths here
+//const paintingImages = [painting, painting, // Include all image paths here
   // ..., more image paths
-  ];
+ // ];
   const paintings = [
     { img: painting, name: 'michellango', price: '$549.00' },
     { img: painting, name: 'michellango', price: '$549.00' },
@@ -33,9 +33,7 @@ const paintingImages = [painting, painting, // Include all image paths here
    
   ];
 
-  const handleRatingChange = (newRating) => {
-    setRating(newRating);
-  };
+  
   const [anchor, setAnchor] = React.useState(null);
 
   const navigate = useNavigate();

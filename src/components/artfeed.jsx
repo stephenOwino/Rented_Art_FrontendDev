@@ -1,22 +1,19 @@
 
-import React, { useState, useEffect } from 'react';
-import { FiFilter } from 'react-icons/fi';
+import React, { useState,  } from 'react';
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import ProductGrid from '../components/productGrid';
 import Mobileproduct from './mobileproduct';
 import { MdNavigateNext } from "react-icons/md";
-import { BrowserRouter as Router } from 'react-router-dom';
+
 
 
 
 
 
 const Artfeed = () => {
-   const [rating, setRating] = useState(0);
 
-   const handleRatingChange = (newRating) => {
-     setRating(newRating);
-   };
+
+  
 
    
    const [clickedItem, setClickedItem] = useState(null);
