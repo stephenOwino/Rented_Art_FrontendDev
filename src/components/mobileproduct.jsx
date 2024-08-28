@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import painting from '../assets/1st-headset.png';
 import { useNavigate } from 'react-router-dom';
 import { Unstable_Popup as BasePopup } from '@mui/base/Unstable_Popup';
