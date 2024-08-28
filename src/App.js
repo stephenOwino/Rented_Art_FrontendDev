@@ -5,9 +5,12 @@ import Login from './pages/login';
 import Home from './pages/home';
 import Signup from './pages/signup';
 import ArtPieces from './pages/artpieces';
-import ProductPage from './pages/productpage';
+import ProductPage from './pages/paintingspage';
 import { ProductProvider } from './components/productcontext';
 import Main from './pages/min';
+import ArtistProfile from './pages/artistprofile';
+import Paintings from './pages/paintings';
+
 
 
 function App() {
@@ -26,6 +29,8 @@ function App() {
   <Route path="/signup" element={<Signup/>} />
   <Route path="/artpieces" element={<ArtPieces />} />
   <Route path="/products" element={<ProductPage />} />
+  <Route path="/paintings" element={<Paintings />} />
+  <Route path="/artist/:id" element={<ArtistProfile />} />
 </Routes>
           </header>
         </div>

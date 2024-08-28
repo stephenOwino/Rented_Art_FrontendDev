@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ProductContext } from '../components/productcontext';
 
-const ProductPage = () => {
+const Paintingspage = () => {
   const { products } = useContext(ProductContext);
 
   return (
@@ -24,4 +24,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default Paintingspage;
