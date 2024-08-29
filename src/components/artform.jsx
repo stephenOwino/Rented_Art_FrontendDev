@@ -5,6 +5,7 @@ import { ProductContext } from './productcontext';
 const ArtForm = () => {
   const [artName, setArtName] = useState('');
   const [price, setPrice] = useState('');
+  const [size, setSize] = useState('');
   const [picture, setPicture] = useState(null);
   const { addProduct } = useContext(ProductContext);
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const ArtForm = () => {
     e.preventDefault();
 
     const imageUrl = URL.createObjectURL(picture);
-    const newProduct = { artName, price, imageUrl };
+    const newProduct = { artName, price, size, imageUrl };
 
     addProduct(newProduct);
     navigate('/products');
@@ -38,13 +39,26 @@ const ArtForm = () => {
       </div>
 
       <div>
+        <label className="block text-sm font-medium text-gray-700">Dimension</label>
+        <input
+          type="string"
+          value={size}
+          onChange={(e) => setSize(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          placeholder="Enter the size "
+          required
+        />
+      </div>
+
+
+      <div>
         <label className="block text-sm font-medium text-gray-700">Price</label>
         <input
           type="number"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          placeholder="Enter the price of the art"
+          placeholder="Enter the price artwork"
           required
         />
       </div>
