@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 
 
 
 
 function ArtistInfo() {
-    const [error, setError] = useState(null);
+    //const [error, setError] = useState(null);
     const [bio, setBio] = useState('');
 const [profilepic, setProfilepic] = useState(null);
 
@@ -15,7 +15,7 @@ const [profilepic, setProfilepic] = useState(null);
         e.preventDefault();
     
         const imageUrl = URL.createObjectURL(profilepic);
-        const newProduct = { bio,  imageUrl };
+       // const newProduct = { bio,  imageUrl };
     
       
       };

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 
 
 
 function Recommendation() {
 	
-    const [error, setError] = useState(null);
+   // const [error, setError] = useState(null);
 	return (
 		<div className='container mx-auto p-4 pt-12 md:p-12 lg:p-20'>
 

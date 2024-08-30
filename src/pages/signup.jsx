@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
   const [username, setUsername] = useState('');
   const [fullname, setFullname] = useState('');
   const [publicName, setPublicName] = useState('');
