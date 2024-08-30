@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 
 function ArtistInfo() {
-    //const [error, setError] = useState(null);
+   
     const [bio, setBio] = useState('');
 const [profilepic, setProfilepic] = useState(null);
 
@@ -34,11 +34,7 @@ const [profilepic, setProfilepic] = useState(null);
 			</h1>
 
 		
-			{error && (
-				<div className='max-w-md mx-auto mb-4 p-2 text-red-700 bg-red-100 border border-red-400 rounded'>
-					{error}
-				</div>
-			)}
+		
 
 <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 space-y-4">
 <div>

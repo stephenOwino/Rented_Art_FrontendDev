@@ -44,8 +44,6 @@ function Signup() {
       fullname: role === 'ARTIST' ? fullname : '',  // Full name for artists
       publicName: role === 'ARTIST' ? publicName : '',  // Public name for artists
       email: email,
-      first_name: firstname,
-      last_name: lastname,
       role: role,
       password: password,
       subscribeToMailingList: subscribeToMailingList,

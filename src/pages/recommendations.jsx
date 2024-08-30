@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 function Recommendation() {
 	
-   // const [error, setError] = useState(null);
+   
 	return (
 		<div className='container mx-auto p-4 pt-12 md:p-12 lg:p-20'>
 
@@ -17,11 +17,7 @@ function Recommendation() {
 			</h1>
 
 		
-			{error && (
-				<div className='max-w-md mx-auto mb-4 p-2 text-red-700 bg-red-100 border border-red-400 rounded'>
-					{error}
-				</div>
-			)}
+			
          
 			
 		</div>
