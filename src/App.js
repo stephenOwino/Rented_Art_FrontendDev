@@ -10,6 +10,8 @@ import { ProductProvider } from './components/productcontext';
 import Main from './pages/min';
 import ArtistProfile from './pages/artistprofile';
 import Paintings from './pages/paintings';
+import Recommendation from './pages/recommendations';
+import ArtistInfo from './pages/artist-info';
 
 
 
@@ -27,6 +29,8 @@ function App() {
 <Route path="/min" element={<Main />} />
   <Route path="/login" element={<Login />} />
   <Route path="/signup" element={<Signup/>} />
+  <Route path="/artist-info" element={<ArtistInfo/>} />
+  <Route path="/recommendations" element={<Recommendation />} />
   <Route path="/artpieces" element={<ArtPieces />} />
   <Route path="/products" element={<ProductPage />} />
   <Route path="/paintings" element={<Paintings />} />
