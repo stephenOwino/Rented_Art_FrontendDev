@@ -1,6 +1,5 @@
 import React from "react";
 import painting3 from '../assets/Image3.png'
-import painting4 from '../assets/Image4.png'
 import painting2 from '../assets/Image2.jpg'
 
 function Editorial() {
@@ -11,10 +10,10 @@ function Editorial() {
 	
 	<div className="mt-56 flex flex-row px-12 relative">
 		<div  className="w-1/4 mt-32  ">
-		<img src= {painting3} />
+		<img src= {painting3} alt='art-painting'/>
 	</div>
 	<div className="w-2/5 ">
-	<img src= {painting2} />
+	<img src= {painting2} alt='art-painting' />
 	</div>
 	<div className="h-[20rem] bg-white p-2 w-1/4 shadow-lg mt-20 flex flex-col ">
 	<div className="font-[600] text-xl"> DISCOVER YOUR ART</div>

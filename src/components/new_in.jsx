@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function New_in() {
+function New() {
 	return (
 		<div >
 
@@ -11,4 +11,4 @@ function New_in() {
 	);
 }
 
-export default New_in;
+export default New;

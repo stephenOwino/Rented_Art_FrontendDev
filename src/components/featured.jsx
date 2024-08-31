@@ -17,9 +17,9 @@ function Featured() {
 
   const maxIndex = Math.ceil(cartItems.length / 3);
 
-  const handlePrevClick = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + maxIndex) % maxIndex);
-  };
+ // const handlePrevClick = () => {
+ //   setActiveIndex((prevIndex) => (prevIndex - 1 + maxIndex) % maxIndex);
+ // };
 
   const handleNextClick = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % maxIndex);
@@ -29,14 +29,14 @@ function Featured() {
     const start = activeIndex * 3;
     return cartItems.slice(start, start + 3);
   };
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       handleNextClick();  // Automatically go to the next set of items
-    }, 2000); // Change every 3 seconds
-
+    }, 3000); // Change every 3 seconds
+  
     return () => clearInterval(intervalId); // Clean up the interval on component unmount
-  }, [activeIndex]); // Dependency on activeIndex to reset the interval on change
+  });
+ 
 
   return (
     <div className=''>

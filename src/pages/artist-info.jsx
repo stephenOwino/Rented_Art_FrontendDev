@@ -17,7 +17,7 @@ const [profilepic, setProfilepic] = useState(null);
         const imageUrl = URL.createObjectURL(profilepic);
        // const newProduct = { bio,  imageUrl };
     
-      
+          return imageUrl;
       };
     
       const handlePictureChange = (e) => {
