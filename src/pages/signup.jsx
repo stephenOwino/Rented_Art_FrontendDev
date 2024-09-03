@@ -47,6 +47,7 @@ function Signup() {
       role: role,
       password: password,
       subscribeToMailingList: subscribeToMailingList,
+      agreedToRules: agreedToRules,
     };
 
     try {

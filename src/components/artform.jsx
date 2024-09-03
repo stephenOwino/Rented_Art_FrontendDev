@@ -6,6 +6,10 @@ const ArtForm = () => {
   const [artName, setArtName] = useState('');
   const [price, setPrice] = useState('');
   const [size, setSize] = useState('');
+  const [buy, setBuy] = useState('');
+  const [rent, setRent] = useState('');
+  const [width, setWidth] = useState('');
+  const [height, setHeight] = useState('');
   const [picture, setPicture] = useState(null);
   const { addProduct } = useContext(ProductContext);
   const navigate = useNavigate();
@@ -14,8 +18,30 @@ const ArtForm = () => {
     e.preventDefault();
 
     const imageUrl = URL.createObjectURL(picture);
-    const newProduct = { artName, price, size, imageUrl };
+    const newProduct = { 
+      artname: artName,
+      price: price,
+       size, 
+       imageUrl,
+       buy: buy,
+       rent: rent,
+       width: width,
+       height: height,
+      };
 
+
+      fetch('/api/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newProduct)
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    
+     
     addProduct(newProduct);
     navigate('/products');
   };
@@ -25,7 +51,8 @@ const ArtForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 space-y-4">
+    <form onSubmit={handleSubmit} className=" ">
+ <div className='max-w-md mx-auto p-4 space-y-4 text-left'>
       <div>
         <label className="block text-sm font-medium text-gray-700">Art Name</label>
         <input
@@ -38,17 +65,7 @@ const ArtForm = () => {
         />
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Dimension</label>
-        <input
-          type="string"
-          value={size}
-          onChange={(e) => setSize(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          placeholder="Enter the size "
-          required
-        />
-      </div>
+   
 
 
       <div>
@@ -58,13 +75,64 @@ const ArtForm = () => {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          placeholder="Enter the price artwork"
+          placeholder="Enter the price"
+          required
+        />
+      </div>
+   <div className='flex flex-row gap-x-2'>
+   <div className="flex items-center gap-x-2">
+            <input
+              type="radio"
+              id="rules"
+              checked={buy}
+              onChange={(e) => setBuy(e.target.checked)}
+              className="h-6 w-6 text-indigo-600 border-gray-300 rounded focus:ring-indigo-700 bg-gray-500"
+              required
+            />
+            <label htmlFor="rules" className="block text-sm font-medium text-gray-700">
+           Buy
+            </label>
+          </div>
+          <div className="flex items-center gap-x-2 ">
+            <input
+              type="radio"
+              id="rules"
+              checked={rent}
+              onChange={(e) => setRent(e.target.checked)}
+              className="h-6 w-6 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+              required
+            />
+            <label htmlFor="rules" className="block text-sm font-medium text-gray-700">
+            Rent
+            </label>
+          </div>
+   </div>
+
+   <div>
+        <label className="block text-sm font-medium text-gray-700">Width</label>
+        <input
+          type="number"
+          value={width}
+          onChange={(e) => setWidth(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          placeholder="Enter the width"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700">Height</label>
+        <input
+          type="number"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          placeholder="Enter the height"
           required
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Picture</label>
+        <label className="block text-sm font-medium text-gray-700">Upload Image</label>
         <input
           type="file"
           onChange={handlePictureChange}
@@ -80,6 +148,7 @@ const ArtForm = () => {
       >
         Submit
       </button>
+      </div>
     </form>
   );
 };
