@@ -9,6 +9,7 @@ function ArtistInfo() {
    
     const [bio, setBio] = useState('');
 const [profilepic, setProfilepic] = useState(null);
+const [tags, setTags] = useState(null);
 
 
     const handleSubmit = (e) => {
@@ -36,7 +37,33 @@ const [profilepic, setProfilepic] = useState(null);
 		
 		
 
-<form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 space-y-4">
+<form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 space-y-4 text-left">
+  
+
+<div>
+        <label className="block text-sm font-medium text-gray-700"> Profile Picture</label>
+        <input
+          type="file"
+          onChange={handlePictureChange}
+          className="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer text-gray-700 focus:outline-none"
+          accept="image/*"
+          required
+        />
+      </div>
+      
+  <div>
+              <label className="block text-sm font-medium text-gray-700">Tags</label>
+              <input
+                type="text"
+                value={tags}
+                onChange={(e) => setTags(e.target.value)}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+            
+
 <div>
   <label className="block text-sm font-medium text-gray-700">Bio</label>
   <textarea
@@ -55,18 +82,6 @@ const [profilepic, setProfilepic] = useState(null);
     required
   />
 </div>
-
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700"> Profile Picture</label>
-        <input
-          type="file"
-          onChange={handlePictureChange}
-          className="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer text-gray-700 focus:outline-none"
-          accept="image/*"
-          required
-        />
-      </div>
 
       <button
         type="submit"

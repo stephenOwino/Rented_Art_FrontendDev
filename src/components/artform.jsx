@@ -5,7 +5,6 @@ import { ProductContext } from './productcontext';
 const ArtForm = () => {
   const [artName, setArtName] = useState('');
   const [price, setPrice] = useState('');
-  const [size, setSize] = useState('');
   const [buy, setBuy] = useState('');
   const [rent, setRent] = useState('');
   const [width, setWidth] = useState('');
@@ -20,8 +19,7 @@ const ArtForm = () => {
     const imageUrl = URL.createObjectURL(picture);
     const newProduct = { 
       artname: artName,
-      price: price,
-       size, 
+      price: price, 
        imageUrl,
        buy: buy,
        rent: rent,
