@@ -20,7 +20,7 @@ function Editorial() {
 	<div className="text-[16px] font-[400]">
 	we make it our mission to help you discover and buy from the best emerging artists around the world. Whether you’re looking to discover a new artist, add a statement piece to your home, or commemorate an important life event, Saatchi Art is your portal to thousands of original works by today’s top artists.
 	</div>
-	<div className='text-xl mt-4  text-indigo-700'>
+	<div className='text-xl mt-4  text-indigo-900'>
 				𝕽ebecca
 		</div>
 	<div>

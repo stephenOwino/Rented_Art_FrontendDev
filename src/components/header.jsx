@@ -19,7 +19,7 @@ const Header = () => {
     <div className=''>
     <div className="hidden md:flex flex-row  py-[16px] justify-between px-[60px] text-[#141718]">
       
-			<a href='/' className='text-3xl drop-shadow-lg -mt-4 text-indigo-700'>
+			<a href='/' className='text-3xl drop-shadow-lg -mt-4 text-indigo-900'>
 				𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>
 		</a>
     <div class="relative">
@@ -59,7 +59,7 @@ const Header = () => {
       <div className='w-[24px] h-[24px] '>
         <Bars3Icon className="h-[20px] w-[20px] p-[1.5px] mt-[2px] text-[#141718]" />
       </div>
-    <div className='w-[120px] text-[15px] font-medium font-poppins -mt-2 drop-shadow-lg  text-indigo-700 '>
+    <div className='w-[120px] text-[15px] font-medium font-poppins -mt-2 drop-shadow-lg  text-indigo-800 '>
     𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[20px]'>.</span>
     </div>
     

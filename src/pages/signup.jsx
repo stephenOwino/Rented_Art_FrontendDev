@@ -40,8 +40,7 @@ function Signup() {
     }
 
     const userData = {
-      username: role === 'ARTIST' ? '' : username,  // Username for non-artists
-      username: role === 'ARTIST' ? username : '',  // Full name for artists
+      username: role === 'ARTIST' ? fullname : username,  // Username for non-artists
       publicName: role === 'ARTIST' ? publicName : '',  // Public name for artists
       email: email,
       role: role,
@@ -74,8 +73,8 @@ function Signup() {
 
   return (
     <div className="container mx-auto p-4 pt-2 md:p-6 lg:p-4 h-screen">
-      <h1 className="text-4xl font-bold mb-4 text-indigo-700 drop-shadow-lg">
-        <div className='text-5xl drop-shadow-sm text-indigo-700 my-12'>𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span></div>
+      <h1 className="text-4xl font-bold mb-4 text-indigo-800 drop-shadow-lg">
+        <div className='text-5xl drop-shadow-sm text-indigo-800 my-12'>𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span></div>
       </h1>
 
       {error && (
@@ -119,8 +118,8 @@ function Signup() {
               <label className="block text-sm font-medium text-gray-700">Full Name</label>
               <input
                 type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="Enter your full name"
                 required

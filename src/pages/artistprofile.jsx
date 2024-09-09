@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink } from "react-router-dom"; // Make sure NavLink is imported
+import { useParams } from "react-router-dom"; // Make sure NavLink is imported
 import ArtworkGrid from "../components/ArtworkGrid";
 import ArtistDetails from "../components/ArtistDetails";
 import art1 from "../assets/art2.jpg";
