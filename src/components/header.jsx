@@ -17,7 +17,7 @@ const Header = () => {
     <>
     {  /* large screen */  }
     <div className=''>
-    <div className="hidden md:flex flex-row  py-[16px] justify-between   px-[60px] text-[#141718]">
+    <div className="hidden md:flex flex-row  py-[16px] justify-between px-[60px] text-[#141718]">
       
 			<a href='/' className='text-3xl drop-shadow-lg -mt-4 text-indigo-700'>
 				𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>

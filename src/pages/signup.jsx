@@ -41,7 +41,7 @@ function Signup() {
 
     const userData = {
       username: role === 'ARTIST' ? '' : username,  // Username for non-artists
-      fullname: role === 'ARTIST' ? fullname : '',  // Full name for artists
+      username: role === 'ARTIST' ? username : '',  // Full name for artists
       publicName: role === 'ARTIST' ? publicName : '',  // Public name for artists
       email: email,
       role: role,
@@ -51,7 +51,7 @@ function Signup() {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/register/', {
+      const response = await fetch('http://127.0.0.1:8000/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,8 +119,8 @@ function Signup() {
               <label className="block text-sm font-medium text-gray-700">Full Name</label>
               <input
                 type="text"
-                value={fullname}
-                onChange={(e) => setFullname(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="Enter your full name"
                 required
