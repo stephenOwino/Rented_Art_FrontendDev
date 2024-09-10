@@ -17,7 +17,7 @@ const Header = () => {
     <>
     {  /* large screen */  }
     <div className=''>
-    <div className="hidden md:flex flex-row  py-[16px] justify-between px-[60px] text-[#141718]">
+    <div className="hidden md:flex flex-row  py-[16px] justify-between px-[60px] text-[#141718] ">
       
 			<a href='/' className='text-3xl drop-shadow-lg -mt-4 text-indigo-900'>
 				𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>
@@ -29,20 +29,25 @@ const Header = () => {
     </button>
 </div>
 
+  <div className='text-lg font-[500] flex flex-row justify-between gap-x-2 mt-1 '>
+    <div className="hover:text-indigo-800">LOGIN</div>
+    <div className=""> | </div>
+    <div className="hover:text-indigo-800">SIGNUP</div>
+  </div>
       <div className="flex flex-row justify-between w-[80px] h-[28px] gap-[16px]">
       
-        <UserCircleIcon className="h-[20px] w-[24spx] text-[#141718]" />
+        <UserCircleIcon className="h-[20px] w-[24spx] text-[#141718] hover:text-indigo-800" />
         <a className=' h-[28px]' href='/cart'>
-        <ShoppingCartIcon className="h-[24px] w-[24px] text-[#141718]"  />
+        <ShoppingCartIcon className="h-[24px] w-[24px] text-[#141718] hover:text-indigo-800"  />
         </a>
       </div>
       
       </div>
       <div class="border-t-[2px] border-gray-100 hidden md:flex flex-row py-[16px] gap-x-24 text-xl font-[600] justify-center items-center px-[60px] text-[#141718] mx-auto ">
-    <div class="">Photo</div>
-    <a href='/paintings' class="">Painting</a>
-    <div class="">Drawings</div>
-    <div class="">Artists</div>
+    <div class="hover:text-indigo-800">Photo</div>
+    <a href='/paintings' class="hover:text-indigo-800">Painting</a>
+    <div class="hover:text-indigo-800">Drawings</div>
+    <a href='/artistprofile'class="hover:text-indigo-800">Artists</a>
 </div>
       </div>
 
