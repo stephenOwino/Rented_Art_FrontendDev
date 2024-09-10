@@ -20,7 +20,7 @@ const Cartbody = () => {
     <div className="hidden md:flex flex-col px-32 ">
         <div className='flex flex-row'>
             <div className='w-2/3'>
-            <img src={painting2} className='blur-[5px] w-[30rem] h-[30rem]' />
+            <img src={painting2} alt="painting" className='blur-[5px] w-[30rem] h-[30rem]' />
             </div>
             <div className='w-1/3 flex flex-col text-center p-8'>
             <div className='flex flex-row space-x-4'>
