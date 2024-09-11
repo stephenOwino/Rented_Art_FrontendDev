@@ -47,7 +47,7 @@ const Header = () => {
     <div class="hover:text-indigo-800">Photo</div>
     <a href='/paintings' class="hover:text-indigo-800">Painting</a>
     <div class="hover:text-indigo-800">Drawings</div>
-    <a href=''class="hover:text-indigo-800">Artists</a>
+    <div class="hover:text-indigo-800">Artists</div>
 </div>
       </div>
 
