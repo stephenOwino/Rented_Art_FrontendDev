@@ -50,6 +50,7 @@ const ArtForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className=" ">
+      
  <div className='max-w-md mx-auto p-4 space-y-4 text-left'>
       <div>
         <label className="block text-sm font-medium text-gray-700">Art Name</label>
@@ -142,7 +143,7 @@ const ArtForm = () => {
 
       <button
         type="submit"
-        className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         Submit
       </button>

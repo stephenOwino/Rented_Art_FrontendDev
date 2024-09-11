@@ -30,9 +30,9 @@ const Header = () => {
 </div>
 
   <div className='text-lg font-[500] flex flex-row justify-between gap-x-2 mt-1 '>
-    <div className="hover:text-indigo-800">LOGIN</div>
+    <a href='/login'className="hover:text-indigo-800">LOGIN</a>
     <div className=""> | </div>
-    <div className="hover:text-indigo-800">SIGNUP</div>
+    <a href='/signup' className="hover:text-indigo-800">SIGNUP</a>
   </div>
       <div className="flex flex-row justify-between w-[80px] h-[28px] gap-[16px]">
       
@@ -47,7 +47,7 @@ const Header = () => {
     <div class="hover:text-indigo-800">Photo</div>
     <a href='/paintings' class="hover:text-indigo-800">Painting</a>
     <div class="hover:text-indigo-800">Drawings</div>
-    <a href='/artistprofile'class="hover:text-indigo-800">Artists</a>
+    <a href=''class="hover:text-indigo-800">Artists</a>
 </div>
       </div>
 

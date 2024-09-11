@@ -72,9 +72,10 @@ function Signup() {
   };
 
   return (
-    <div className="container mx-auto p-4 pt-2 md:p-6 lg:p-4 h-screen">
+    <div className='bg-gradient-to-l from-indigo-700 via-amber-500 to-lime-300 w-[100%] p-12'>
+    <div className="container mx-auto p-2  md:pb-12 lg:pb-12 h-4/5 w-2/5 bg-white shadow-xl rounded-2xl m ">
       <h1 className="text-4xl font-bold mb-4 text-indigo-800 drop-shadow-lg">
-        <div className='text-5xl drop-shadow-sm text-indigo-800 my-12'>𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span></div>
+        <div className='text-5xl drop-shadow-sm text-indigo-800 my-2'>𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span></div>
       </h1>
 
       {error && (
@@ -221,12 +222,13 @@ function Signup() {
 
         <button
           type="submit"
-          className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"
+          className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white  bg-indigo-700 hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"
         >
           Next
         </button>
       
       </form>
+    </div>
     </div>
   );
 }
