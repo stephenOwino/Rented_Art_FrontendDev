@@ -1,7 +1,6 @@
 // src/pages/ArtistDetailPage.js
 
 import React from "react";
-import { useParams } from "react-router-dom";
 
 const ArtistDetailPage = () => {
 	//const { id } = useParams();
