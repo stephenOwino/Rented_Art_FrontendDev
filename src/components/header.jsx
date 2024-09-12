@@ -22,9 +22,9 @@ const Header = () => {
 			<a href='/' className='text-3xl drop-shadow-lg -mt-4 text-indigo-900'>
 				𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>
 		</a>
-    <div class="relative">
-    <input type="text" class="w-[22rem] px-4 py-2 border rounded-md" placeholder="Search" />
-    <button type="submit" class="absolute right-0 top-0 mt-2 mr-2">
+    <div className="relative">
+    <input type="text" className="w-[22rem] px-4 py-2 border rounded-md" placeholder="Search" />
+    <button type="submit" className="absolute right-0 top-0 mt-2 mr-2">
         <MagnifyingGlassIcon className="h-[24px] w-[24px] text-[#141718] text-gray-500" />
     </button>
 </div>
@@ -43,11 +43,11 @@ const Header = () => {
       </div>
       
       </div>
-      <div class="border-t-[2px] border-gray-100 hidden md:flex flex-row py-[16px] gap-x-24 text-xl font-[600] justify-center items-center px-[60px] text-[#141718] mx-auto ">
-    <div class="hover:text-indigo-800">Photo</div>
-    <a href='/paintings' class="hover:text-indigo-800">Painting</a>
-    <div class="hover:text-indigo-800">Drawings</div>
-    <div class="hover:text-indigo-800">Artists</div>
+      <div className="border-t-[2px] border-gray-100 hidden md:flex flex-row py-[16px] gap-x-24 text-xl font-[600] justify-center items-center px-[60px] text-[#141718] mx-auto ">
+    <div className="hover:text-indigo-800">Photo</div>
+    <a href='/paintings' className="hover:text-indigo-800">Painting</a>
+    <div className="hover:text-indigo-800">Drawings</div>
+    <div className="hover:text-indigo-800">Artists</div>
 </div>
       </div>
 

@@ -16,9 +16,9 @@ function ArtistDetails({ artist }) {
 					<p className='text-gray-700 mb-4  text-center'>
 						{artist.description || "No description available."}
 					</p>
-					<div className=" flex flex-row justify-between">
-					<FollowLikeButtons followOnly={true} />
-					<Addartbutton addbutton={true} />
+					<div className=' flex flex-row justify-between'>
+						<FollowLikeButtons followOnly={true} />
+						<Addartbutton addbutton={true} />
 					</div>
 				</div>
 			</div>
