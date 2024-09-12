@@ -4,7 +4,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 const ArtistDetailPage = () => {
-	const { id } = useParams();
+	//const { id } = useParams();
 
 	// Example artist data; replace this with data from API or state
 	const artist = {
