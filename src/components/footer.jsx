@@ -9,7 +9,7 @@ const Footer = () => {
     <div className="hidden md:flex flex-col px-[60px] pb-[32px] pt-[80px] bg-transparent h-[249px] gap-[49px] text-[#6C7275]   bottom-0 left-0 w-full bg-gray-800 text-white p-4">
 
     <div className='h-[32px]   justify-between flex flex-row'>
-    <div className='text-3xl drop-shadow-lg -mt-4 text-indigo-700'>
+    <div className='text-3xl drop-shadow-lg -mt-4 text-indigo-900'>
 				𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>
 
 		</div>
@@ -72,7 +72,7 @@ const Footer = () => {
    <div className=" md:hidden flex flex-col  px-[32px] py-[48px] text-[#232627] bg-transparent w-screen h-[609px] bottom-0 left-0 w-full bg-gray-800 text-white p-4">
    
     <div className="  h-[301px] flex flex-col w-auto text-center ">
-    <div className='text-xl drop-shadow-lg -mt-4 text-indigo-700'>
+    <div className='text-xl drop-shadow-lg -mt-4 text-indigo-900'>
 				𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>
 
 		</div>

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink } from "react-router-dom"; // Make sure NavLink is imported
+import { useParams } from "react-router-dom"; // Make sure NavLink is imported
 import ArtworkGrid from "../components/ArtworkGrid";
 import ArtistDetails from "../components/ArtistDetails";
 import art1 from "../assets/art2.jpg";
 import art2 from "../assets/art3.jpg";
 import art3 from "../assets/art4.jpg";
+import Footer from "../components/footer";
+import Header from "../components/header";
+
 // Dummy data with additional art pieces for scrolling
 const dummyArtist = {
 	name: "Stephen Otieno",
@@ -160,42 +163,12 @@ function ArtistProfile() {
 	}, [id]);
 
 	return (
-		<div className='relative'>
-			{/* Navbar Section */}
-			<nav className='fixed top-0 left-0 right-0 bg-white shadow-md z-50'>
-				<div className='container mx-auto flex flex-col p-4'>
-					{/* Navigation Links */}
-					<div className='flex justify-between items-center'>
-						<div className='flex-1 flex justify-around space-x-4'>
-							<NavLink
-								to='/about'
-								className='text-gray-700 hover:text-blue-500 text-xs'
-							>
-								About
-							</NavLink>
-							<NavLink
-								to='/photos'
-								className='text-gray-700 hover:text-blue-500 text-xs'
-							>
-								Photos
-							</NavLink>
-							<NavLink
-								to='/followers'
-								className='text-gray-700 hover:text-blue-500 text-xs'
-							>
-								Followers
-							</NavLink>
-							<NavLink
-								to='/saved'
-								className='text-gray-700 hover:text-blue-500 text-xs'
-							>
-								Saved
-							</NavLink>
-						</div>
-					</div>
-				</div>
-			</nav>
-
+		<div className='flex flex-col'>
+		{/*Header */}
+			<div className="">
+				<Header />
+			</div>
+			
 			{/* Body Section */}
 			<div className='pt-[80px] max-w-6xl mx-auto'>
 				{/* Artist Details */}
@@ -206,6 +179,11 @@ function ArtistProfile() {
 					Artworks
 				</h2>
 				<ArtworkGrid artworks={artworks} />
+			</div>
+
+			{/*Footer */}
+			<div className="">
+				<Footer />
 			</div>
 		</div>
 	);

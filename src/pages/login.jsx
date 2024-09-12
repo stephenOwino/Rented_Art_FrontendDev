@@ -41,10 +41,11 @@ function Login() {
 	};
 
 	return (
-		<div className='container mx-auto p-4 pt-12 md:p-12 lg:p-20'>
+		<div className='bg-gradient-to-l from-indigo-700 via-amber-500 to-lime-300 w-[100%] p-20 h-screen'>
+		<div className='container mx-auto p-2 pt-4 md:px-4 md:pb-12 lg:pb-12 lg:px-8 bg-white shadow-xl rounded-2xl h-4/5 w-2/5'>
 
-			<h1 className='text-4xl font-bold mb-4 text-indigo-700 drop-shadow-lg'>
-				<div className='text-5xl drop-shadow-sm text-indigo-700'>
+			<h1 className='text-4xl font-bold mb-4 text-indigo-800 drop-shadow-lg'>
+				<div className='text-5xl drop-shadow-sm text-indigo-800'>
 					𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>
 				</div>
 			</h1>
@@ -90,7 +91,7 @@ function Login() {
 
 				<button
 					type='submit'
-					className='w-full py-2 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+					className='w-full py-2 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
 				>
 					Login
 				</button>
@@ -102,6 +103,7 @@ function Login() {
 					</a>
 				</div>
 			</form>
+		</div>
 		</div>
 	);
 }

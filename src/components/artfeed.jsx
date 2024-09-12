@@ -75,59 +75,136 @@ const Artfeed = () => {
    <div className=''>   
    <ul className="w-full px-1">
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="react-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">All Price</label>
-        <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+      <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="react-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">All Price</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="vue-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">$100.00 - 200.00</label>
-        <input id="vue-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+      <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="vue-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">$100.00 - 200.00</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">$200.00 - 300.00</label>
-        <input id="angular-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+         <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">$200.00 - 300.00</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">$300.00 - 400.00</label>
-        <input id="laravel-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+         <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">$300.00 - 400.00</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">$400.00 - 500.00</label>
-        <input id="angular-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+         <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">$400.00 - 500.00</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">$500.00 - 600.00</label>
-        <input id="laravel-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+         <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">$500.00 - 600.00</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">$600+</label>
-        <input id="laravel-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+         <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">$600+</label>
       </li>
     </ul>
    </div>
  </div>
  <div className='price my-2 mx-1'>
-   <div className='my-2 text-left font-inter font-[600] text-[16px]'>Size</div>
+   <div className='my-2 text-left font-inter font-[600] text-[16px]'>ORIENTATION</div>
    <div className=''>   
    <ul className="w-full px-1">
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="react-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">All Sizes</label>
-        <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+      <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="react-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">All </label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="vue-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">Small</label>
-        <input id="vue-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+      <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="vue-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">Landscape</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">Medium</label>
-        <input id="angular-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+         <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">Portrait</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">Large</label>
-        <input id="laravel-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+         <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">Natural</label>
+      </li>
+    </ul>
+   </div>
+ </div>
+ <div className='size my-2 mx-1'>
+   <div className='my-2 text-left font-inter font-[600] text-[16px]'>Size</div>
+   <div className=''>   
+   <ul className="w-full px-1">
+      <li className="flex flex-row justify-between w-1/2  h-[24px]">
+      <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="react-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">All Sizes</label>
       </li>
       <li className="flex flex-row justify-between w-full  h-[24px]">
-        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] font-inter text-[#6C7275]">Oversized</label>
-        <input id="angular-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="vue-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">Small</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">Medium</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">Large</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">Oversized</label>
+      </li>
+    </ul>
+   </div>
+ </div>
+ <div className='size my-2 mx-1'>
+   <div className='my-2 text-left font-inter font-[600] text-[16px]'>Width</div>
+   <div className=''>   
+   <ul className="w-full px-1">
+      <li className="flex flex-row justify-between w-1/2  h-[24px]">
+      <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="react-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">All </label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="vue-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">0-200</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">200 - 400</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">400-600</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">600-above</label>
+      </li>
+    </ul>
+   </div>
+ </div>
+ <div className='size my-2 mx-1'>
+   <div className='my-2 text-left font-inter font-[600] text-[16px]'>Height</div>
+   <div className=''>   
+   <ul className="w-full px-1">
+      <li className="flex flex-row justify-between w-1/2  h-[24px]">
+      <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="react-checkbox" className="w-full text-left text-[14px] font-[600] font-inter ml-1 -mt-[1px] text-[#6C7275]">All </label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="vue-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">0-200</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">200 - 400</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="laravel-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">400-600</label>
+      </li>
+      <li className="flex flex-row justify-between w-full  h-[24px]">
+          <input id="react-checkbox" type="checkbox" value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 focus:ring-0" style={{ accentColor: 'black' }} />
+        <label htmlFor="angular-checkbox" className="w-full text-left text-[14px] font-[600] ml-1 -mt-[1px] font-inter text-[#6C7275]">600-above</label>
       </li>
     </ul>
    </div>
