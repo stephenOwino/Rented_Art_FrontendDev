@@ -16,6 +16,7 @@ import Order from "./pages/order";
 import ArtistsPage from "./pages/artistspage";
 import ArtPiecePage from "./pages/artpiecepage";
 import ArtistDetailPage from "./pages/artistdetailpage";
+import PaymentPage from "./pages/paymentPage";
 
 function App() {
 	return (
@@ -40,6 +41,7 @@ function App() {
 								<Route path='/artpiece/page' element={<ArtPiecePage />} />
 								<Route path='/artists/page' element={<ArtistsPage />} />
 								<Route path='/artists/:id' element={<ArtistDetailPage />} />
+								<Route path='/payment/page' element={<PaymentPage />} />
 							</Routes>
 						</header>
 					</div>
