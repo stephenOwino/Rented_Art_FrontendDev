@@ -98,15 +98,15 @@ const PaymentPage = () => {
 				<h3 className='text-xl font-bold mb-4'>Order Summary</h3>
 				<div className='flex justify-between mb-2'>
 					<span>Subtotal</span>
-					<span>$36.99</span>
+					<span>$36.00</span>
 				</div>
 				<div className='flex justify-between mb-2'>
 					<span>Tax</span>
-					<span>$3.50</span>
+					<span>$3.00</span>
 				</div>
 				<div className='flex justify-between font-bold text-lg'>
 					<span>Total</span>
-					<span>$40.49</span>
+					<span>$39.00</span>
 				</div>
 			</div>
 		</div>

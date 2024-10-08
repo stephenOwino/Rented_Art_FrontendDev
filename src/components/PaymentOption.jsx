@@ -4,7 +4,7 @@ const PaymentOption = ({ paymentMethod, setPaymentMethod }) => {
 	return (
 		<div className='flex flex-col sm:flex-row sm:justify-around mb-6 space-y-4 sm:space-y-0'>
 			<label
-				className={`flex items-center p-2 border rounded-lg cursor-pointer transition-colors ${
+				className={`flex items-center p-3 border rounded-lg cursor-pointer transition-colors ${
 					paymentMethod === "PayPal"
 						? "border-blue-500 bg-blue-50"
 						: "border-gray-300"
@@ -21,7 +21,7 @@ const PaymentOption = ({ paymentMethod, setPaymentMethod }) => {
 				PayPal
 			</label>
 			<label
-				className={`flex items-center p-2 border rounded-lg cursor-pointer transition-colors ${
+				className={`flex items-center p-3 border rounded-lg cursor-pointer transition-colors ${
 					paymentMethod === "CreditCard"
 						? "border-blue-500 bg-blue-50"
 						: "border-gray-300"
@@ -38,7 +38,7 @@ const PaymentOption = ({ paymentMethod, setPaymentMethod }) => {
 				Credit/Debit Card
 			</label>
 			<label
-				className={`flex items-center p-2 border rounded-lg cursor-pointer transition-colors ${
+				className={`flex items-center p-3 border rounded-lg cursor-pointer transition-colors ${
 					paymentMethod === "Klarna"
 						? "border-blue-500 bg-blue-50"
 						: "border-gray-300"
