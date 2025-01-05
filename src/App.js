@@ -6,7 +6,6 @@ import Signup from "./pages/signup";
 import ArtPieces from "./pages/artpieces";
 import ProductPage from "./pages/paintingspage";
 import { ProductProvider } from "./components/productcontext";
-import Main from "./pages/min";
 import ArtistProfile from "./pages/artistprofile";
 import Paintings from "./pages/paintings";
 import Recommendation from "./pages/recommendations";
@@ -27,7 +26,6 @@ function App() {
 						<header className='App-header'>
 							<Routes>
 								<Route path='/' element={<Home />} />
-								<Route path='/min' element={<Main />} />
 								<Route path='/login' element={<Login />} />
 								<Route path='/signup' element={<Signup />} />
 								<Route path='/artist-info' element={<ArtistInfo />} />

@@ -1,83 +1,132 @@
-
-import React from 'react';
-import { MagnifyingGlassIcon, UserCircleIcon, ShoppingCartIcon, Bars3Icon } from '@heroicons/react/24/outline';
-
-
-
-
- 
-   
-
+import React, { useState } from "react";
+import {
+	MagnifyingGlassIcon,
+	UserCircleIcon,
+	ShoppingCartIcon,
+	Bars3Icon,
+	XMarkIcon,
+} from "@heroicons/react/24/outline";
 
 const Header = () => {
- 
+	const [menuOpen, setMenuOpen] = useState(false);
 
-  
-  return (
-    <>
-    {  /* large screen */  }
-    <div className=''>
-    <div className="hidden md:flex flex-row  py-[16px] justify-between px-[60px] text-[#141718] ">
-      
-			<a href='/' className='text-3xl drop-shadow-lg -mt-4 text-indigo-900'>
-				𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[70px]'>.</span>
-		</a>
-    <div className="relative">
-    <input type="text" className="w-[22rem] px-4 py-2 border rounded-md" placeholder="Search" />
-    <button type="submit" className="absolute right-0 top-0 mt-2 mr-2">
-        <MagnifyingGlassIcon className="h-[24px] w-[24px] text-[#141718] text-gray-500" />
-    </button>
-</div>
+	return (
+		<header className='sticky top-0 w-full bg-white border-b border-gray-200 z-50'>
+			{/* Large and Medium Screens */}
+			<div className='hidden md:flex flex-col'>
+				{/* Top Section */}
+				<div className='flex items-center justify-between py-4 px-8 lg:px-16'>
+					<a
+						href='/'
+						className='text-3xl font-bold tracking-wide text-indigo-900 drop-shadow-md'
+					>
+						𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-5xl'>.</span>
+					</a>
 
-  <div className='text-lg font-[500] flex flex-row justify-between gap-x-2 mt-1 '>
-    <a href='/login'className="hover:text-indigo-800">LOGIN</a>
-    <div className=""> | </div>
-    <a href='/signup' className="hover:text-indigo-800">SIGNUP</a>
-  </div>
-      <div className="flex flex-row justify-between w-[80px] h-[28px] gap-[16px]">
-      
-        <UserCircleIcon className="h-[20px] w-[24spx] text-[#141718] hover:text-indigo-800" />
-        <a className=' h-[28px]' href='/cart'>
-        <ShoppingCartIcon className="h-[24px] w-[24px] text-[#141718] hover:text-indigo-800"  />
-        </a>
-      </div>
-      
-      </div>
-      <div className="border-t-[2px] border-gray-100 hidden md:flex flex-row py-[16px] gap-x-24 text-xl font-[600] justify-center items-center px-[60px] text-[#141718] mx-auto ">
-    <div className="hover:text-indigo-800">Photo</div>
-    <a href='/paintings' className="hover:text-indigo-800">Painting</a>
-    <div className="hover:text-indigo-800">Drawings</div>
-    <div className="hover:text-indigo-800">Artists</div>
-</div>
-      </div>
+					{/* Search Bar */}
+					<div className='relative w-1/3'>
+						<input
+							type='text'
+							className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500'
+							placeholder='Search for art...'
+						/>
+						<button
+							type='submit'
+							className='absolute right-2 top-2 text-gray-500 hover:text-indigo-600'
+						>
+							<MagnifyingGlassIcon className='h-5 w-5' />
+						</button>
+					</div>
 
-     
-      
+					{/* Navigation & Icons */}
+					<div className='flex items-center space-x-6'>
+						<a href='/login' className='hover:text-indigo-800 font-medium'>
+							LOGIN
+						</a>
+						<a href='/signup' className='hover:text-indigo-800 font-medium'>
+							SIGNUP
+						</a>
+						<UserCircleIcon className='h-6 w-6 text-[#141718] hover:text-indigo-800' />
+						<a href='/cart'>
+							<ShoppingCartIcon className='h-6 w-6 text-[#141718] hover:text-indigo-800' />
+						</a>
+					</div>
+				</div>
 
-      
+				{/* Bottom Section */}
+				<div className='flex justify-center space-x-8 py-3 text-sm lg:text-base font-semibold text-gray-700'>
+					<a href='/photos' className='hover:text-indigo-800'>
+						Photos
+					</a>
+					<a href='/paintings' className='hover:text-indigo-800'>
+						Paintings
+					</a>
+					<a href='/drawings' className='hover:text-indigo-800'>
+						Drawings
+					</a>
+					<a href='/artists' className='hover:text-indigo-800'>
+						Artists
+					</a>
+				</div>
+			</div>
 
+			{/* Mobile Screens */}
+			<div className='md:hidden flex items-center justify-between py-4 px-4'>
+				{/* Left: Menu Icon & Logo */}
+				<div className='flex items-center space-x-3'>
+					<button
+						onClick={() => setMenuOpen(!menuOpen)}
+						className='text-gray-800 focus:outline-none'
+					>
+						{menuOpen ? (
+							<XMarkIcon className='h-6 w-6' />
+						) : (
+							<Bars3Icon className='h-6 w-6' />
+						)}
+					</button>
+					<a href='/' className='text-lg font-semibold text-indigo-800'>
+						𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-xl'>.</span>
+					</a>
+				</div>
 
-   { /* mobile screen */  }
-   <div className=" md:hidden flex flex-row px-[24px] py-[16px] flex justify-between text-[#141718]">
-   
-    <div className=" w-[102px] h-[24px] flex flex-row ">
-      <div className='w-[24px] h-[24px] '>
-        <Bars3Icon className="h-[20px] w-[20px] p-[1.5px] mt-[2px] text-[#141718]" />
-      </div>
-    <div className='w-[120px] text-[15px] font-medium font-poppins -mt-2 drop-shadow-lg  text-indigo-800 '>
-    𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-[20px]'>.</span>
-    </div>
-    
-    </div>
+				{/* Right: Cart Icon */}
+				<a href='/cart'>
+					<ShoppingCartIcon className='h-6 w-6 text-gray-800' />
+				</a>
+			</div>
 
-    <a className='w-[50px] h-[28px]' href='/cart'>
-        <ShoppingCartIcon className="h-[20px] w-[20px] text-[#141718]" />
-        </a>
-    </div>
+			{/* Dropdown Menu */}
+			{menuOpen && (
+				<div className='md:hidden bg-white shadow-md py-4 px-6'>
+					{/* Navigation Links */}
+					<nav className='flex flex-col space-y-4 text-gray-800 font-medium'>
+						<a href='/photos' className='hover:text-indigo-800'>
+							Photos
+						</a>
+						<a href='/paintings' className='hover:text-indigo-800'>
+							Paintings
+						</a>
+						<a href='/drawings' className='hover:text-indigo-800'>
+							Drawings
+						</a>
+						<a href='/artists' className='hover:text-indigo-800'>
+							Artists
+						</a>
+					</nav>
 
-   
-   </>
-  );
+					{/* Action Links */}
+					<div className='mt-6 flex flex-col space-y-3'>
+						<a href='/login' className='text-gray-800 hover:text-indigo-800'>
+							LOGIN
+						</a>
+						<a href='/signup' className='text-gray-800 hover:text-indigo-800'>
+							SIGNUP
+						</a>
+					</div>
+				</div>
+			)}
+		</header>
+	);
 };
 
 export default Header;

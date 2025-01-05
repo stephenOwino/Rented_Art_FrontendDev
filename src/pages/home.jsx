@@ -5,24 +5,28 @@ import New from "../components/new_in";
 import Featured from "../components/featured";
 import Editorial from "../components/editorial";
 
-
 function Home() {
 	return (
-		<div className=" flex flex-col gap-y-4 space-y-8">
+		<div className='flex flex-col space-y-16'>
+			{/* Header Component */}
+			<Header />
 
-		<Header />
-         <New />
-		 <div className="mt-40">
-		 <Featured />
-		 </div>
-		 <Editorial />
-		<Footer />
+			{/* New Section */}
+			<New />
 
+			{/* Featured Section */}
+			<div className='mt-16 block'>
+				{" "}
+				{/* Ensure visibility */}
+				<Featured />
+			</div>
 
+			{/* Editorial Section */}
+			<Editorial />
+
+			{/* Footer */}
+			<Footer />
 		</div>
-		
-	
-		
 	);
 }
 
