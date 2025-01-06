@@ -6,6 +6,7 @@ import {
 	Bars3Icon,
 	XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -16,12 +17,12 @@ const Header = () => {
 			<div className='hidden md:flex flex-col'>
 				{/* Top Section */}
 				<div className='flex items-center justify-between py-4 px-8 lg:px-16'>
-					<a
-						href='/'
+					<Link
+						to='/'
 						className='text-3xl font-bold tracking-wide text-indigo-900 drop-shadow-md'
 					>
 						𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-5xl'>.</span>
-					</a>
+					</Link>
 
 					{/* Search Bar */}
 					<div className='relative w-1/3'>
@@ -40,33 +41,33 @@ const Header = () => {
 
 					{/* Navigation & Icons */}
 					<div className='flex items-center space-x-6'>
-						<a href='/login' className='hover:text-indigo-800 font-medium'>
+						<Link to='/login' className='hover:text-indigo-800 font-medium'>
 							LOGIN
-						</a>
-						<a href='/signup' className='hover:text-indigo-800 font-medium'>
+						</Link>
+						<Link to='/signup' className='hover:text-indigo-800 font-medium'>
 							SIGNUP
-						</a>
+						</Link>
 						<UserCircleIcon className='h-6 w-6 text-[#141718] hover:text-indigo-800' />
-						<a href='/cart'>
+						<Link to='/cart'>
 							<ShoppingCartIcon className='h-6 w-6 text-[#141718] hover:text-indigo-800' />
-						</a>
+						</Link>
 					</div>
 				</div>
 
 				{/* Bottom Section with new navigation links */}
 				<div className='flex justify-center space-x-8 py-3 text-sm lg:text-base font-semibold text-gray-700'>
-					<a href='/' className='hover:text-indigo-800'>
+					<Link to='/' className='hover:text-indigo-800'>
 						Home
-					</a>
-					<a href='#about-section' className='hover:text-indigo-800'>
+					</Link>
+					<Link to='/about' className='hover:text-indigo-800'>
 						About
-					</a>
-					<a href='/services' className='hover:text-indigo-800'>
+					</Link>
+					<Link to='/services' className='hover:text-indigo-800'>
 						Services
-					</a>
-					<a href='/contact' className='hover:text-indigo-800'>
+					</Link>
+					<Link to='/contact' className='hover:text-indigo-800'>
 						Contact Us
-					</a>
+					</Link>
 				</div>
 			</div>
 
@@ -84,15 +85,15 @@ const Header = () => {
 							<Bars3Icon className='h-6 w-6' />
 						)}
 					</button>
-					<a href='/' className='text-lg font-semibold text-indigo-800'>
+					<Link to='/' className='text-lg font-semibold text-indigo-800'>
 						𝕽𝖊𝖓𝖙𝖊𝖉 𝕬𝖗𝖙<span className='text-red-600 text-xl'>.</span>
-					</a>
+					</Link>
 				</div>
 
 				{/* Right: Cart Icon */}
-				<a href='/cart'>
+				<Link to='/cart'>
 					<ShoppingCartIcon className='h-6 w-6 text-gray-800' />
-				</a>
+				</Link>
 			</div>
 
 			{/* Dropdown Menu */}
@@ -100,28 +101,28 @@ const Header = () => {
 				<div className='md:hidden bg-white shadow-md py-4 px-6'>
 					{/* Navigation Links */}
 					<nav className='flex flex-col space-y-4 text-gray-800 font-medium'>
-						<a href='/' className='hover:text-indigo-800'>
+						<Link to='/' className='hover:text-indigo-800'>
 							Home
-						</a>
-						<a href='#about-section' className='hover:text-indigo-800'>
+						</Link>
+						<Link to='/about' className='hover:text-indigo-800'>
 							About
-						</a>
-						<a href='/services' className='hover:text-indigo-800'>
+						</Link>
+						<Link to='/services' className='hover:text-indigo-800'>
 							Services
-						</a>
-						<a href='/contact' className='hover:text-indigo-800'>
+						</Link>
+						<Link to='/contact' className='hover:text-indigo-800'>
 							Contact Us
-						</a>
+						</Link>
 					</nav>
 
 					{/* Action Links */}
 					<div className='mt-6 flex flex-col space-y-3'>
-						<a href='/login' className='text-gray-800 hover:text-indigo-800'>
+						<Link to='/login' className='text-gray-800 hover:text-indigo-800'>
 							LOGIN
-						</a>
-						<a href='/signup' className='text-gray-800 hover:text-indigo-800'>
+						</Link>
+						<Link to='/signup' className='text-gray-800 hover:text-indigo-800'>
 							SIGNUP
-						</a>
+						</Link>
 					</div>
 				</div>
 			)}

@@ -17,6 +17,7 @@ import ArtPiecePage from "./pages/artpiecepage";
 import ArtistDetailPage from "./pages/artistdetailpage";
 import PaymentPage from "./pages/paymentPage";
 import About from "./components/About";
+import Contact from "./components/Contact";
 
 function App() {
 	return (
@@ -28,8 +29,9 @@ function App() {
 							<Routes>
 								<Route path='/' element={<Home />} />
 								<Route path='/login' element={<Login />} />
-								<Route path='/register' element={<Signup />} />
+								<Route path='/signup' element={<Signup />} />
 								<Route path='/about' element={<About />} />
+								<Route path='/contact' element={<Contact />} />
 								<Route path='/artist-info' element={<ArtistInfo />} />
 								<Route path='/recommendations' element={<Recommendation />} />
 								<Route path='/artpieces' element={<ArtPieces />} />

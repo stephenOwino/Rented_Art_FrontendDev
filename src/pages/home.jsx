@@ -5,6 +5,7 @@ import New from "../components/new_in";
 import Featured from "../components/featured";
 import Editorial from "../components/editorial";
 import About from "../components/About";
+import Contact from "../components/Contact";
 
 function Home() {
 	return (
@@ -27,6 +28,7 @@ function Home() {
 
 			{/* About Section with an ID for scrolling */}
 			<About id='about-section' />
+			<Contact />
 
 			{/* Footer */}
 			<Footer />
