@@ -10,6 +10,10 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [hoverPaintings, setHoverPaintings] = useState(false);
+	const [hoverPhotography, setHoverPhotography] = useState(false);
+	const [hoverDrawings, setHoverDrawings] = useState(false);
+	const [hoverPrints, setHoverPrints] = useState(false);
 
 	return (
 		<header className='sticky top-0 w-full bg-white border-b border-gray-200 z-50'>
@@ -68,6 +72,212 @@ const Header = () => {
 					<Link to='/contact' className='hover:text-indigo-800'>
 						Contact Us
 					</Link>
+
+					{/* Paintings Dropdown */}
+					<div
+						className='relative'
+						onMouseEnter={() => setHoverPaintings(true)}
+						onMouseLeave={() => setHoverPaintings(false)}
+					>
+						<Link to='/paintings' className='hover:text-indigo-800 font-medium'>
+							Paintings
+						</Link>
+						{hoverPaintings && (
+							<div className='absolute top-full left-0 mt-2 w-72 bg-white shadow-lg rounded-md'>
+								{/* Content for Paintings */}
+							</div>
+						)}
+					</div>
+
+					{/* Photography Dropdown */}
+					<div
+						className='relative'
+						onMouseEnter={() => setHoverPhotography(true)}
+						onMouseLeave={() => setHoverPhotography(false)}
+					>
+						<Link
+							to='/photography'
+							className='hover:text-indigo-800 font-medium'
+						>
+							Photography
+						</Link>
+						{hoverPhotography && (
+							<div className='absolute top-full left-0 mt-2 w-full bg-white shadow-lg rounded-md'>
+								{/* Content for Photography */}
+								{/* Photography Dropdown */}
+								<div
+									className='relative'
+									onMouseEnter={() => setHoverPhotography(true)}
+									onMouseLeave={() => setHoverPhotography(false)}
+								>
+									<Link
+										to='/photography'
+										className='hover:text-indigo-800 font-medium'
+									></Link>
+									{hoverPhotography && (
+										<div className='absolute top-full left-0 mt-2 w-72 bg-white shadow-lg rounded-md'>
+											<div className='grid grid-cols-3 gap-4 p-4'>
+												<div>
+													<h4 className='font-semibold text-indigo-800'>
+														Style
+													</h4>
+													<ul className='space-y-2 text-sm text-gray-700'>
+														<li>Fine Art</li>
+														<li>Portraiture</li>
+														<li>Abstract</li>
+														<li>Documentary</li>
+														<li>Conceptual</li>
+													</ul>
+												</div>
+												<div>
+													<h4 className='font-semibold text-indigo-800'>
+														Subject
+													</h4>
+													<ul className='space-y-2 text-sm text-gray-700'>
+														<li>Landscape</li>
+														<li>Portrait</li>
+														<li>Nature</li>
+														<li>Still Life</li>
+														<li>Nude</li>
+													</ul>
+												</div>
+												<div>
+													<h4 className='font-semibold text-indigo-800'>
+														Medium
+													</h4>
+													<ul className='space-y-2 text-sm text-gray-700'>
+														<li>Digital</li>
+														<li>Black and White</li>
+														<li>Color</li>
+														<li>C-type</li>
+														<li>Digital</li>
+													</ul>
+												</div>
+											</div>
+											<div className='border-t border-gray-200 p-4 text-center'>
+												<Link
+													to='/featured-photography'
+													className='text-indigo-800 hover:underline'
+												>
+													FEATURED PHOTOGRAPHY
+												</Link>
+											</div>
+										</div>
+									)}
+								</div>
+							</div>
+						)}
+					</div>
+
+					{/* Drawings Dropdown */}
+					<div
+						className='relative'
+						onMouseEnter={() => setHoverDrawings(true)}
+						onMouseLeave={() => setHoverDrawings(false)}
+					>
+						<Link to='/drawings' className='hover:text-indigo-800 font-medium'>
+							Drawings
+						</Link>
+						{hoverDrawings && (
+							<div className='absolute top-full left-0 mt-2 w-72 bg-white shadow-lg rounded-md'>
+								<div className='grid grid-cols-3 gap-4 p-4'>
+									<div>
+										<h4 className='font-semibold text-indigo-800'>Style</h4>
+										<ul className='space-y-2 text-sm text-gray-700'>
+											<li>Graffiti</li>
+											<li>Abstract</li>
+											<li>Fine Art</li>
+											<li>Pop Art</li>
+											<li>Surrealism</li>
+										</ul>
+									</div>
+									<div>
+										<h4 className='font-semibold text-indigo-800'>Subject</h4>
+										<ul className='space-y-2 text-sm text-gray-700'>
+											<li>Nature</li>
+											<li>Portrait</li>
+											<li>Animal</li>
+											<li>Love</li>
+											<li>Cartoon</li>
+										</ul>
+									</div>
+									<div>
+										<h4 className='font-semibold text-indigo-800'>Medium</h4>
+										<ul className='space-y-2 text-sm text-gray-700'>
+											<li>Pencil</li>
+											<li>Charcoal</li>
+											<li>Digital</li>
+											<li>Ink</li>
+											<li>Pastel</li>
+										</ul>
+									</div>
+								</div>
+								<div className='border-t border-gray-200 p-4 text-center'>
+									<Link
+										to='/featured-drawings'
+										className='text-indigo-800 hover:underline'
+									>
+										FEATURED DRAWINGS
+									</Link>
+								</div>
+							</div>
+						)}
+					</div>
+
+					{/* Prints Dropdown */}
+					<div
+						className='relative'
+						onMouseEnter={() => setHoverPrints(true)}
+						onMouseLeave={() => setHoverPrints(false)}
+					>
+						<Link to='/prints' className='hover:text-indigo-800 font-medium'>
+							Prints
+						</Link>
+						{hoverPrints && (
+							<div className='absolute top-full left-0 mt-2 w-72 bg-white shadow-lg rounded-md'>
+								<div className='grid grid-cols-3 gap-4 p-4'>
+									<div>
+										<h4 className='font-semibold text-indigo-800'>Style</h4>
+										<ul className='space-y-2 text-sm text-gray-700'>
+											<li>Fine Art</li>
+											<li>Abstract</li>
+											<li>Art Deco</li>
+											<li>Pop Art</li>
+											<li>Folk Art</li>
+										</ul>
+									</div>
+									<div>
+										<h4 className='font-semibold text-indigo-800'>Subject</h4>
+										<ul className='space-y-2 text-sm text-gray-700'>
+											<li>Floral</li>
+											<li>Animal</li>
+											<li>Fashion</li>
+											<li>Beach</li>
+											<li>Geometric</li>
+										</ul>
+									</div>
+									<div>
+										<h4 className='font-semibold text-indigo-800'>Material</h4>
+										<ul className='space-y-2 text-sm text-gray-700'>
+											<li>Fine Art Paper</li>
+											<li>Photo Paper</li>
+											<li>Canvas</li>
+											<li>Metal</li>
+											<li>Acrylic</li>
+										</ul>
+									</div>
+								</div>
+								<div className='border-t border-gray-200 p-4 text-center'>
+									<Link
+										to='/featured-prints'
+										className='text-indigo-800 hover:underline'
+									>
+										FEATURED PRINTS
+									</Link>
+								</div>
+							</div>
+						)}
+					</div>
 				</div>
 			</div>
 
@@ -112,6 +322,18 @@ const Header = () => {
 						</Link>
 						<Link to='/contact' className='hover:text-indigo-800'>
 							Contact Us
+						</Link>
+						<Link to='/paintings' className='hover:text-indigo-800'>
+							Paintings
+						</Link>
+						<Link to='/photography' className='hover:text-indigo-800'>
+							Photography
+						</Link>
+						<Link to='/drawings' className='hover:text-indigo-800'>
+							Drawings
+						</Link>
+						<Link to='/prints' className='hover:text-indigo-800'>
+							Prints
 						</Link>
 					</nav>
 
