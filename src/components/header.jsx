@@ -53,19 +53,19 @@ const Header = () => {
 					</div>
 				</div>
 
-				{/* Bottom Section */}
+				{/* Bottom Section with new navigation links */}
 				<div className='flex justify-center space-x-8 py-3 text-sm lg:text-base font-semibold text-gray-700'>
-					<a href='/photos' className='hover:text-indigo-800'>
-						Photos
+					<a href='/' className='hover:text-indigo-800'>
+						Home
 					</a>
-					<a href='/paintings' className='hover:text-indigo-800'>
-						Paintings
+					<a href='#about-section' className='hover:text-indigo-800'>
+						About
 					</a>
-					<a href='/drawings' className='hover:text-indigo-800'>
-						Drawings
+					<a href='/services' className='hover:text-indigo-800'>
+						Services
 					</a>
-					<a href='/artists' className='hover:text-indigo-800'>
-						Artists
+					<a href='/contact' className='hover:text-indigo-800'>
+						Contact Us
 					</a>
 				</div>
 			</div>
@@ -100,17 +100,17 @@ const Header = () => {
 				<div className='md:hidden bg-white shadow-md py-4 px-6'>
 					{/* Navigation Links */}
 					<nav className='flex flex-col space-y-4 text-gray-800 font-medium'>
-						<a href='/photos' className='hover:text-indigo-800'>
-							Photos
+						<a href='/' className='hover:text-indigo-800'>
+							Home
 						</a>
-						<a href='/paintings' className='hover:text-indigo-800'>
-							Paintings
+						<a href='#about-section' className='hover:text-indigo-800'>
+							About
 						</a>
-						<a href='/drawings' className='hover:text-indigo-800'>
-							Drawings
+						<a href='/services' className='hover:text-indigo-800'>
+							Services
 						</a>
-						<a href='/artists' className='hover:text-indigo-800'>
-							Artists
+						<a href='/contact' className='hover:text-indigo-800'>
+							Contact Us
 						</a>
 					</nav>
 
