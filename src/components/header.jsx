@@ -83,7 +83,7 @@ const Header = () => {
 							Paintings
 						</Link>
 						{hoverPaintings && (
-							<div className='absolute top-full left-0 mt-2 w-72 bg-white shadow-lg rounded-md'>
+							<div className='absolute top-full left-0 mt-2 w-max bg-white shadow-lg rounded-md'>
 								{/* Content for Paintings */}
 							</div>
 						)}
@@ -115,8 +115,8 @@ const Header = () => {
 										className='hover:text-indigo-800 font-medium'
 									></Link>
 									{hoverPhotography && (
-										<div className='absolute top-full left-0 mt-2 w-72 bg-white shadow-lg rounded-md'>
-											<div className='grid grid-cols-3 gap-4 p-4'>
+										<div className='absolute top-full left-0 mt-2 w-full bg-white shadow-lg rounded-md'>
+											<div className='grid grid-cols-4 gap-4 p-4'>
 												<div>
 													<h4 className='font-semibold text-indigo-800'>
 														Style

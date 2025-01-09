@@ -1,74 +1,76 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setUserInfo, setError } from "../actions/actions";
+import { registerUser } from "../apiService";
+import {
+	registerUserRequest,
+	registerUserSuccess,
+	registerUserFailure,
+} from "../actions/actions";
 
 function Signup() {
-	const [username, setUsername] = useState("");
-	const [fullname, setFullname] = useState("");
-	const [publicName, setPublicName] = useState("");
-	const [email, setEmail] = useState("");
-	const [role, setRole] = useState("");
-	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
-	const [subscribeToMailingList, setSubscribeToMailingList] = useState(false);
-	const [agreedToRules, setAgreedToRules] = useState(false);
-	const [error, setError] = useState(null);
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
+
+	// Get data from Redux store
+	const { userInfo, error, loading, success } = useSelector(
+		(state) => state.signup
+	);
+
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		dispatch(setUserInfo({ [name]: value }));
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		if (password !== confirmPassword) {
-			setError("Passwords do not match");
+		if (userInfo.password !== userInfo.confirmPassword) {
+			dispatch(setError("Passwords do not match. Please check and try again."));
 			return;
 		}
 
-		if (!role) {
-			alert("Please select a role");
+		if (!userInfo.role) {
+			alert("Please select a role to continue.");
 			return;
 		}
 
-		if (role === "ARTIST" && !agreedToRules) {
+		if (userInfo.role === "ARTIST" && !userInfo.agreedToRules) {
 			alert(
 				"You must agree to the Rules and Regulations to register as an Artist."
 			);
 			return;
 		}
 
-		if (role === "ARTIST") {
-			navigate("/artist-info");
-		} else if (role === "RENTER") {
-			navigate("/recommendations");
-		}
-
 		const userData = {
-			username: role === "ARTIST" ? fullname : username,
-			publicName: role === "ARTIST" ? publicName : "",
-			email: email,
-			role: role,
-			password: password,
-			subscribeToMailingList: subscribeToMailingList,
-			agreedToRules: agreedToRules,
+			username:
+				userInfo.role === "ARTIST" ? userInfo.fullname : userInfo.username,
+			publicName: userInfo.role === "ARTIST" ? userInfo.publicName : "",
+			email: userInfo.email,
+			role: userInfo.role,
+			password: userInfo.password,
+			subscribeToMailingList: userInfo.subscribeToMailingList,
+			agreedToRules: userInfo.agreedToRules,
 		};
 
+		// Show loading spinner
+		dispatch(registerUserRequest());
+
 		try {
-			const response = await fetch("http://127.0.0.1:8000/register/", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(userData),
-			});
-
-			if (!response.ok) {
-				const errorData = await response.json();
-				throw new Error(errorData.detail || "Failed to register");
-			}
-
-			const data = await response.json();
+			const data = await registerUser(userData); // Call the registerUser function from the API service
 			localStorage.setItem("token", data.token);
+
+			// Success message upon successful signup
+			alert("Registration successful! Redirecting to the login page.");
 			navigate("/login");
+			dispatch(registerUserSuccess(data)); // Success state
 		} catch (error) {
-			setError(error.message);
+			dispatch(
+				registerUserFailure(
+					error.message || "Something went wrong. Please try again."
+				)
+			);
 		}
 	};
 
@@ -83,33 +85,39 @@ function Signup() {
 					</div>
 				)}
 
+				{loading && (
+					<div className='text-center py-4'>
+						<span>Loading...</span> {/* Or use a spinner here */}
+					</div>
+				)}
+
 				<div className='flex items-center justify-center mb-6'>
 					<button
 						type='button'
 						className={`px-4 py-2 mr-4 border rounded-md text-sm font-medium ${
-							role === "ARTIST"
+							userInfo.role === "ARTIST"
 								? "bg-indigo-600 text-white"
 								: "bg-white text-gray-700 border-gray-300"
 						}`}
-						onClick={() => setRole("ARTIST")}
+						onClick={() => dispatch(setUserInfo({ role: "ARTIST" }))}
 					>
 						Artist
 					</button>
 					<button
 						type='button'
 						className={`px-4 py-2 border rounded-md text-sm font-medium ${
-							role === "RENTER"
+							userInfo.role === "RENTER"
 								? "bg-indigo-600 text-white"
 								: "bg-white text-gray-700 border-gray-300"
 						}`}
-						onClick={() => setRole("RENTER")}
+						onClick={() => dispatch(setUserInfo({ role: "RENTER" }))}
 					>
 						Client
 					</button>
 				</div>
 
 				<form onSubmit={handleSubmit}>
-					{role === "ARTIST" ? (
+					{userInfo.role === "ARTIST" ? (
 						<>
 							<div className='mb-4'>
 								<label className='block text-sm font-medium text-gray-700'>
@@ -117,9 +125,10 @@ function Signup() {
 								</label>
 								<input
 									type='text'
-									value={fullname}
-									onChange={(e) => setFullname(e.target.value)}
-									className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+									name='fullname'
+									value={userInfo.fullname}
+									onChange={handleInputChange}
+									className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700'
 									placeholder='Enter your full name'
 									required
 								/>
@@ -130,9 +139,10 @@ function Signup() {
 								</label>
 								<input
 									type='text'
-									value={publicName}
-									onChange={(e) => setPublicName(e.target.value)}
-									className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+									name='publicName'
+									value={userInfo.publicName}
+									onChange={handleInputChange}
+									className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700'
 									placeholder='Enter your public name'
 									required
 								/>
@@ -145,9 +155,10 @@ function Signup() {
 							</label>
 							<input
 								type='text'
-								value={username}
-								onChange={(e) => setUsername(e.target.value)}
-								className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+								name='username'
+								value={userInfo.username}
+								onChange={handleInputChange}
+								className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700'
 								placeholder='Enter Username'
 								required
 							/>
@@ -160,9 +171,10 @@ function Signup() {
 						</label>
 						<input
 							type='email'
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+							name='email'
+							value={userInfo.email}
+							onChange={handleInputChange}
+							className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700'
 							placeholder='Enter your email'
 							required
 						/>
@@ -174,9 +186,10 @@ function Signup() {
 						</label>
 						<input
 							type='password'
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+							name='password'
+							value={userInfo.password}
+							onChange={handleInputChange}
+							className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700'
 							placeholder='Enter your password'
 							required
 						/>
@@ -188,9 +201,10 @@ function Signup() {
 						</label>
 						<input
 							type='password'
-							value={confirmPassword}
-							onChange={(e) => setConfirmPassword(e.target.value)}
-							className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+							name='confirmPassword'
+							value={userInfo.confirmPassword}
+							onChange={handleInputChange}
+							className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700'
 							placeholder='Confirm your password'
 							required
 						/>
@@ -200,8 +214,9 @@ function Signup() {
 						<input
 							type='checkbox'
 							id='mailingList'
-							checked={subscribeToMailingList}
-							onChange={(e) => setSubscribeToMailingList(e.target.checked)}
+							name='subscribeToMailingList'
+							checked={userInfo.subscribeToMailingList}
+							onChange={handleInputChange}
 							className='h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500'
 						/>
 						<label htmlFor='mailingList' className='ml-2 text-sm text-gray-700'>
@@ -209,13 +224,14 @@ function Signup() {
 						</label>
 					</div>
 
-					{role === "ARTIST" && (
+					{userInfo.role === "ARTIST" && (
 						<div className='flex items-center mb-6'>
 							<input
 								type='checkbox'
 								id='rules'
-								checked={agreedToRules}
-								onChange={(e) => setAgreedToRules(e.target.checked)}
+								name='agreedToRules'
+								checked={userInfo.agreedToRules}
+								onChange={handleInputChange}
 								className='h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500'
 								required
 							/>
@@ -232,6 +248,12 @@ function Signup() {
 						Sign Up
 					</button>
 				</form>
+
+				{success && (
+					<div className='mt-4 text-green-600 text-center'>
+						Registration Successful! Redirecting to the login page...
+					</div>
+				)}
 			</div>
 		</div>
 	);
