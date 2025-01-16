@@ -19,7 +19,6 @@ const Signup = () => {
 	});
 
 	const navigate = useNavigate();
-
 	const dispatch = useDispatch();
 
 	const { firstName, lastName, email, password, confirmPassword, role, bio } =
@@ -133,16 +132,18 @@ const Signup = () => {
 							className='border rounded-md p-2 w-full'
 						/>
 					</div>
-					{/* Role */}
+					{/* Role - Dropdown for selecting role */}
 					<div className='flex flex-col w-full'>
-						<input
-							type='text'
+						<select
 							name='role'
-							placeholder='Role'
 							value={formData.role}
 							onChange={onChange}
 							className='border rounded-md p-2 w-full'
-						/>
+						>
+							<option value=''>Select Role</option>
+							<option value='ARTIST'>Artist</option>
+							<option value='RENTER'>Renter</option>
+						</select>
 					</div>
 					{/* Bio */}
 					<div className='flex flex-col w-full'>

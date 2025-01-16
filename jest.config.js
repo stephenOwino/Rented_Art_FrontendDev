@@ -1,9 +1,7 @@
 // jest.config.js
 module.exports = {
-  transform: {
-    "^.+\\.jsx?$": "babel-jest",
-  },
-  transformIgnorePatterns: [
-    "/node_modules/(?!(axios)/)"
-  ],
+	transform: {
+		"^.+\\.jsx?$": "babel-jest",
+	},
+	transformIgnorePatterns: ["/node_modules/(?!(axios)/)"],
 };
