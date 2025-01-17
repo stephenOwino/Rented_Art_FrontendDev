@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaSignInAlt, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, reset } from "../authSlice/authSlice";
 import { toast } from "react-toastify";
@@ -31,16 +30,20 @@ const Login = () => {
 			} else {
 				toast.error(message);
 			}
+			// Reset error after showing the message
+			dispatch(reset());
 		}
+
 		if (isSuccess || user) {
-			toast.success("Login successful!");
+			// Redirect to homepage on successful login
 			navigate("/");
 		}
-		dispatch(reset());
 	}, [user, isError, isSuccess, message, navigate, dispatch]);
 
 	const onSubmit = (e) => {
 		e.preventDefault();
+		// Clear previous errors before login attempt
+		dispatch(reset());
 
 		const userData = {
 			email,
