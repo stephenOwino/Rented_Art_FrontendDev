@@ -22,6 +22,13 @@ const Header = () => {
 		navigate("/");
 	};
 
+	const handleMenuClose = () => {
+		setTimeout(() => {
+			setMenuOpen(false);
+			// Close menu after 3 seconds
+		}, 3000);
+	};
+
 	return (
 		<header className='sticky top-0 w-full bg-white border-b border-gray-200 z-50 shadow-md'>
 			{/* Large and Medium Screens */}
@@ -170,19 +177,49 @@ const Header = () => {
 			{menuOpen && (
 				<div className='md:hidden bg-white shadow-md py-4 px-6'>
 					<nav className='flex flex-col space-y-4 text-gray-800 font-medium'>
-						<Link to='/' className='hover:text-indigo-800'>
+						<Link
+							to='/'
+							className='hover:text-indigo-800'
+							onClick={() => {
+								handleMenuClose();
+							}}
+						>
 							Home
 						</Link>
-						<Link to='/about' className='hover:text-indigo-800'>
+						<Link
+							to='/about'
+							className='hover:text-indigo-800'
+							onClick={() => {
+								handleMenuClose();
+							}}
+						>
 							About
 						</Link>
-						<Link to='/services' className='hover:text-indigo-800'>
+						<Link
+							to='/services'
+							className='hover:text-indigo-800'
+							onClick={() => {
+								handleMenuClose();
+							}}
+						>
 							Services
 						</Link>
-						<Link to='/contact' className='hover:text-indigo-800'>
+						<Link
+							to='/contact'
+							className='hover:text-indigo-800'
+							onClick={() => {
+								handleMenuClose();
+							}}
+						>
 							Contact Us
 						</Link>
-						<Link to='/cart' className='hover:text-indigo-800'>
+						<Link
+							to='/cart'
+							className='hover:text-indigo-800'
+							onClick={() => {
+								handleMenuClose();
+							}}
+						>
 							Cart
 						</Link>
 					</nav>
