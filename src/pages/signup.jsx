@@ -35,12 +35,12 @@ const Signup = () => {
 		if (isSuccess || user) {
 			navigate("/");
 		}
-		dispatch(reset);
+		dispatch(reset());
 	}, [user, isError, isSuccess, message, navigate, dispatch]);
 
 	const onChange = (e) => {
 		setFormData((prevState) => ({
-			...formData,
+			...prevState,
 			[e.target.name]: e.target.value,
 		}));
 	};

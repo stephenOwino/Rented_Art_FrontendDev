@@ -50,8 +50,8 @@ function App() {
 						</header>
 					</div>
 				</Router>
+				<ToastContainer />
 			</ProductProvider>
-			<ToastContainer />
 		</div>
 	);
 }
