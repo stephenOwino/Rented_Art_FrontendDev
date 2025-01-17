@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { FaSignInAlt } from "react-icons/fa";
+import { FaSignInAlt, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { login, reset } from "../authSlice/authSlice"; // Assuming there's a login action
+import { login, reset } from "../authSlice/authSlice";
 import { toast } from "react-toastify";
 import LoadingSpinner from "./spinner/LoadingSpinner";
 
@@ -12,6 +12,7 @@ const Login = () => {
 		email: "",
 		password: "",
 	});
+	const [showPassword, setShowPassword] = useState(false);
 
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -24,7 +25,12 @@ const Login = () => {
 
 	useEffect(() => {
 		if (isError) {
-			toast.error(message);
+			// Custom handling for user not found
+			if (message.includes("not found")) {
+				toast.error(`${message}. Please register.`);
+			} else {
+				toast.error(message);
+			}
 		}
 		if (isSuccess || user) {
 			toast.success("Login successful!");
@@ -34,22 +40,25 @@ const Login = () => {
 	}, [user, isError, isSuccess, message, navigate, dispatch]);
 
 	const onSubmit = (e) => {
-		e.preventDefault(); // Prevent default form submission
-		console.log("Login submitted with data: ", formData);
+		e.preventDefault();
 
 		const userData = {
 			email,
 			password,
 		};
-		dispatch(login(userData)); // Replace logout with login action
-
-		if (isLoading) {
-			return <LoadingSpinner />;
-		}
+		dispatch(login(userData));
 	};
+
+	if (isLoading) {
+		return <LoadingSpinner />;
+	}
 
 	const onChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
+	};
+
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword);
 	};
 
 	return (
@@ -82,9 +91,9 @@ const Login = () => {
 					</div>
 
 					{/* Password Field */}
-					<div>
+					<div className='relative'>
 						<input
-							type='password'
+							type={showPassword ? "text" : "password"}
 							name='password'
 							id='password'
 							value={password}
@@ -93,6 +102,16 @@ const Login = () => {
 							placeholder='Password'
 							required
 						/>
+						<div
+							className='absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer'
+							onClick={togglePasswordVisibility}
+						>
+							{showPassword ? (
+								<FaEyeSlash className='text-gray-500 hover:text-blue-500' />
+							) : (
+								<FaEye className='text-gray-500 hover:text-blue-500' />
+							)}
+						</div>
 					</div>
 
 					{/* Submit Button */}

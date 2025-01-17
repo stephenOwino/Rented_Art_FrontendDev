@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa"; // Add FaEye and FaEyeSlash
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,6 +17,9 @@ const Signup = () => {
 		role: "",
 		bio: "",
 	});
+
+	const [showPassword, setShowPassword] = useState(false); // State for password visibility
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State for confirm password visibility
 
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -47,7 +50,6 @@ const Signup = () => {
 	};
 
 	const onSubmit = (e) => {
-		// Prevent the default form submission behavior
 		e.preventDefault();
 		console.log("Form submitted with data: ", formData);
 
@@ -65,6 +67,17 @@ const Signup = () => {
 			dispatch(register(userData));
 		}
 	};
+
+	// Toggle password visibility
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword);
+	};
+
+	// Toggle confirm password visibility
+	const toggleConfirmPasswordVisibility = () => {
+		setShowConfirmPassword(!showConfirmPassword);
+	};
+
 	if (isLoading) {
 		return <LoadingSpinner />;
 	}
@@ -113,26 +126,52 @@ const Signup = () => {
 					</div>
 					{/* Password */}
 					<div className='flex flex-col w-full'>
-						<input
-							type='password'
-							name='password'
-							placeholder='Password'
-							value={formData.password}
-							onChange={onChange}
-							className='border rounded-md p-2 w-full'
-						/>
+						<div className='relative'>
+							<input
+								type={showPassword ? "text" : "password"} // Toggle input type for password
+								name='password'
+								placeholder='Password'
+								value={formData.password}
+								onChange={onChange}
+								className='border rounded-md p-2 w-full'
+							/>
+							<div
+								className='absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer'
+								onClick={togglePasswordVisibility}
+							>
+								{showPassword ? (
+									<FaEyeSlash className='text-gray-500 hover:text-blue-500' />
+								) : (
+									<FaEye className='text-gray-500 hover:text-blue-500' />
+								)}
+							</div>
+						</div>
 					</div>
+
 					{/* Confirm Password */}
 					<div className='flex flex-col w-full'>
-						<input
-							type='password'
-							name='confirmPassword'
-							placeholder='Confirm Password'
-							value={formData.confirmPassword}
-							onChange={onChange}
-							className='border rounded-md p-2 w-full'
-						/>
+						<div className='relative'>
+							<input
+								type={showConfirmPassword ? "text" : "password"} // Toggle input type for confirm password
+								name='confirmPassword'
+								placeholder='Confirm Password'
+								value={formData.confirmPassword}
+								onChange={onChange}
+								className='border rounded-md p-2 w-full'
+							/>
+							<div
+								className='absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer'
+								onClick={toggleConfirmPasswordVisibility}
+							>
+								{showConfirmPassword ? (
+									<FaEyeSlash className='text-gray-500 hover:text-blue-500' />
+								) : (
+									<FaEye className='text-gray-500 hover:text-blue-500' />
+								)}
+							</div>
+						</div>
 					</div>
+
 					{/* Role - Dropdown for selecting role */}
 					<div className='flex flex-col w-full'>
 						<select

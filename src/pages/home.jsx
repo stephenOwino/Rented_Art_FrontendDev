@@ -1,30 +1,23 @@
-import React, { useEffect } from "react";
-import Header from "../components/header";
 import Footer from "../components/footer";
 import New from "../components/new_in";
 import Featured from "../components/featured";
 import Editorial from "../components/editorial";
 import About from "../components/About";
 import Contact from "../components/Contact";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 function Home() {
-	const navigate = useNavigate();
+	// const { user } = useSelector((state) => state.auth);
 
-	const { user } = useSelector((state) => state.auth);
-
-	useEffect(() => {
-		if (!user) {
-			navigate("login" || "register");
-		}
-	}, [user, navigate]);
+	// useEffect(() => {
+	// 	if (!user) {
+	// 		navigate("/login");
+	// 	}
+	// }, [user, navigate]);
 
 	//HOME
 	return (
 		<div className='flex flex-col space-y-16'>
 			{/* Header Component */}
-			<Header />
 
 			{/* New Section */}
 			<New />

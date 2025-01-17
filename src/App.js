@@ -1,5 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./pages/login";
@@ -20,6 +25,9 @@ import ArtistDetailPage from "./pages/artistdetailpage";
 import PaymentPage from "./pages/paymentPage";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Header from "./components/header";
+import ServicesPage from "./pages/Servicesp";
+import ProtectedRoutes from "./pages/ProtectedRoutes/protectedRoutes";
 
 function App() {
 	return (
@@ -27,27 +35,40 @@ function App() {
 			<ProductProvider>
 				<Router>
 					<div className='App'>
-						<header className='App-header'>
+						{/* Include Header component outside of Routes to display on all pages */}
+						<Header />
+
+						<main>
 							<Routes>
+								{/* Public Routes */}
 								<Route path='/' element={<Home />} />
 								<Route path='/login' element={<Login />} />
 								<Route path='/signup' element={<Signup />} />
-								<Route path='/about' element={<About />} />
-								<Route path='/contact' element={<Contact />} />
-								<Route path='/artist-info' element={<ArtistInfo />} />
-								<Route path='/recommendations' element={<Recommendation />} />
-								<Route path='/artpieces' element={<ArtPieces />} />
-								<Route path='/cart' element={<Cart />} />
-								<Route path='/order' element={<Order />} />
-								<Route path='/products' element={<ProductPage />} />
-								<Route path='/paintings' element={<Paintings />} />
-								<Route path='/artist/:id' element={<ArtistProfile />} />
-								<Route path='/artpiece/page' element={<ArtPiecePage />} />
-								<Route path='/artists/page' element={<ArtistsPage />} />
-								<Route path='/artists/:id' element={<ArtistDetailPage />} />
-								<Route path='/payment/page' element={<PaymentPage />} />
+
+								{/* Protected Routes */}
+								<Route element={<ProtectedRoutes />}>
+									<Route path='/about' element={<About />} />
+									<Route path='/contact' element={<Contact />} />
+									<Route path='/services' element={<ServicesPage />} />
+
+									<Route path='/artist-info' element={<ArtistInfo />} />
+									<Route path='/recommendations' element={<Recommendation />} />
+									<Route path='/artpieces' element={<ArtPieces />} />
+									<Route path='/cart' element={<Cart />} />
+									<Route path='/order' element={<Order />} />
+									<Route path='/products' element={<ProductPage />} />
+									<Route path='/paintings' element={<Paintings />} />
+									<Route path='/artist/:id' element={<ArtistProfile />} />
+									<Route path='/artpiece/page' element={<ArtPiecePage />} />
+									<Route path='/artists/page' element={<ArtistsPage />} />
+									<Route path='/artists/:id' element={<ArtistDetailPage />} />
+									<Route path='/payment/page' element={<PaymentPage />} />
+								</Route>
+
+								{/* Catch-all redirect */}
+								<Route path='*' element={<Navigate to='/' />} />
 							</Routes>
-						</header>
+						</main>
 					</div>
 				</Router>
 			</ProductProvider>
