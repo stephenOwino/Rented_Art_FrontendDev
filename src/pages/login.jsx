@@ -110,9 +110,9 @@ const Login = () => {
 				<div className='flex justify-end mt-6'>
 					<p className='text-sm text-gray-600'>
 						Don't have an account?{" "}
-						<a href='/signup' className='text-blue-600 hover:underline'>
+						<Link to='/signup' className='text-blue-600 hover:underline'>
 							Register
-						</a>
+						</Link>
 					</p>
 				</div>
 			</section>
