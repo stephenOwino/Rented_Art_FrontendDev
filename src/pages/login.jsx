@@ -1,21 +1,55 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaSignInAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { login, reset } from "../authSlice/authSlice"; // Assuming there's a login action
+import { toast } from "react-toastify";
+import LoadingSpinner from "./spinner/LoadingSpinner";
 
 const Login = () => {
 	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
 	});
+
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	const { user, isLoading, isError, isSuccess, message } = useSelector(
+		(state) => state.auth
+	);
+
 	const { email, password } = formData;
 
-	const onChange = (e) => {
-		setFormData({ ...formData, [e.target.name]: e.target.value });
-	};
+	useEffect(() => {
+		if (isError) {
+			toast.error(message);
+		}
+		if (isSuccess || user) {
+			toast.success("Login successful!");
+			navigate("/");
+		}
+		dispatch(reset());
+	}, [user, isError, isSuccess, message, navigate, dispatch]);
 
 	const onSubmit = (e) => {
 		e.preventDefault(); // Prevent default form submission
 		console.log("Login submitted with data: ", formData);
-		// Add login logic here (e.g., API call)
+
+		const userData = {
+			email,
+			password,
+		};
+		dispatch(login(userData)); // Replace logout with login action
+
+		if (isLoading) {
+			return <LoadingSpinner />;
+		}
+	};
+
+	const onChange = (e) => {
+		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
 	return (

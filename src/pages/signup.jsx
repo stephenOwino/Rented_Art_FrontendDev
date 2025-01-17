@@ -33,6 +33,7 @@ const Signup = () => {
 			toast.error(message);
 		}
 		if (isSuccess || user) {
+			toast.success("Registration successful!");
 			navigate("/");
 		}
 		dispatch(reset());
