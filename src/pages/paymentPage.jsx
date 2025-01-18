@@ -5,7 +5,7 @@ const PaymentPage = () => {
 	const [paymentMethod, setPaymentMethod] = useState("");
 
 	return (
-		<div className='max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg mt-8'>
+		<div className='max-w-3xl mx-auto p-8 bg-white rounded-lg shadow-xl mt-8'>
 			<h2 className='text-3xl font-semibold text-center mb-6'>
 				Choose Your Payment Method
 			</h2>
@@ -19,40 +19,50 @@ const PaymentPage = () => {
 			{/* Conditional rendering of payment method forms */}
 			{paymentMethod === "PayPal" && (
 				<div className='mb-6'>
-					<label className='block text-gray-700 font-medium'>
+					<label className='block text-gray-700 font-medium mb-2'>
 						PayPal Email
 					</label>
 					<input
 						type='email'
-						className='w-full p-3 border border-gray-300 rounded mt-2 focus:ring focus:ring-blue-500 focus:outline-none'
+						className='w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none'
 						placeholder='Enter your PayPal email'
+						required
 					/>
 				</div>
 			)}
 
 			{paymentMethod === "CreditCard" && (
 				<div className='mb-6'>
-					<label className='block text-gray-700 font-medium'>Card Number</label>
+					<label className='block text-gray-700 font-medium mb-2'>
+						Card Number
+					</label>
 					<input
 						type='text'
-						className='w-full p-3 border border-gray-300 rounded mt-2 focus:ring focus:ring-blue-500 focus:outline-none'
+						className='w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none'
 						placeholder='Card Number'
+						required
 					/>
 					<div className='flex space-x-4 mt-4'>
 						<div className='w-1/2'>
-							<label className='block text-gray-700 font-medium'>MM / YY</label>
+							<label className='block text-gray-700 font-medium mb-2'>
+								MM / YY
+							</label>
 							<input
 								type='text'
-								className='w-full p-3 border border-gray-300 rounded mt-2 focus:ring focus:ring-blue-500 focus:outline-none'
+								className='w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none'
 								placeholder='MM / YY'
+								required
 							/>
 						</div>
 						<div className='w-1/2'>
-							<label className='block text-gray-700 font-medium'>CVC</label>
+							<label className='block text-gray-700 font-medium mb-2'>
+								CVC
+							</label>
 							<input
 								type='text'
-								className='w-full p-3 border border-gray-300 rounded mt-2 focus:ring focus:ring-blue-500 focus:outline-none'
+								className='w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none'
 								placeholder='CVC'
+								required
 							/>
 						</div>
 					</div>
@@ -68,8 +78,9 @@ const PaymentPage = () => {
 				</div>
 			)}
 
+			{/* Billing Address Section */}
 			<div className='mb-6'>
-				<label className='block text-gray-700 font-medium'>
+				<label className='block text-gray-700 font-medium mb-2'>
 					Billing Address
 				</label>
 				<div className='mt-2 space-y-2 sm:space-y-0 sm:flex sm:space-x-4'>
@@ -90,10 +101,12 @@ const PaymentPage = () => {
 				</div>
 			</div>
 
-			<button className='bg-blue-600 text-white py-3 px-6 rounded-lg w-full font-medium hover:bg-blue-700 transition'>
+			{/* Submit Button */}
+			<button className='bg-blue-600 text-white py-3 px-6 rounded-lg w-full font-medium hover:bg-blue-700 transition duration-300'>
 				Submit Payment
 			</button>
 
+			{/* Order Summary */}
 			<div className='mt-8 border-t pt-6'>
 				<h3 className='text-xl font-bold mb-4'>Order Summary</h3>
 				<div className='flex justify-between mb-2'>

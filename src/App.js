@@ -23,7 +23,10 @@ import ArtistsPage from "./pages/artistspage";
 import ArtPiecePage from "./pages/artpiecepage";
 import ArtistDetailPage from "./pages/artistdetailpage";
 import PaymentPage from "./pages/paymentPage";
+import Cartbody from "./components/cartbody";
 import About from "./components/About";
+import Orderbody from "./components/orderbody";
+
 import Contact from "./components/Contact";
 import Header from "./components/header";
 import ServicesPage from "./pages/Servicesp";
@@ -44,17 +47,18 @@ function App() {
 								<Route path='/' element={<Home />} />
 								<Route path='/login' element={<Login />} />
 								<Route path='/signup' element={<Signup />} />
-
 								{/* Protected Routes */}
 								<Route element={<ProtectedRoutes />}>
+									<Route path='/cart' element={<Cart />} />
+									<Route path='/payment/page' element={<PaymentPage />} />
+									<Route path='/dd' element={<Cartbody />} />
 									<Route path='/about' element={<About />} />
 									<Route path='/contact' element={<Contact />} />
 									<Route path='/services' element={<ServicesPage />} />
-
+									<Route path='/orderbody' element={<Orderbody />} />
 									<Route path='/artist-info' element={<ArtistInfo />} />
 									<Route path='/recommendations' element={<Recommendation />} />
 									<Route path='/artpieces' element={<ArtPieces />} />
-									<Route path='/cart' element={<Cart />} />
 									<Route path='/order' element={<Order />} />
 									<Route path='/products' element={<ProductPage />} />
 									<Route path='/paintings' element={<Paintings />} />
@@ -62,7 +66,6 @@ function App() {
 									<Route path='/artpiece/page' element={<ArtPiecePage />} />
 									<Route path='/artists/page' element={<ArtistsPage />} />
 									<Route path='/artists/:id' element={<ArtistDetailPage />} />
-									<Route path='/payment/page' element={<PaymentPage />} />
 								</Route>
 
 								{/* Catch-all redirect */}
