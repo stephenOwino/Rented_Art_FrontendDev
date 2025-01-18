@@ -41,46 +41,66 @@ const Header = () => {
 				</Link>
 
 				{/* Search Bar */}
-				<div className='relative w-1/3'>
+				<div className='flex items-center space-x-4'>
 					<input
 						type='text'
-						className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500'
-						placeholder='Search for art...'
+						className='px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500'
+						placeholder='Search art...'
 					/>
-					<button
-						type='submit'
-						className='absolute right-2 top-2 text-gray-500 hover:text-indigo-600'
-					>
+					<button type='submit' className='text-gray-500 hover:text-indigo-600'>
 						<MagnifyingGlassIcon className='h-5 w-5' />
 					</button>
 				</div>
 
-				{/* Navigation Links */}
+				{/* Navigation Links (Common) */}
 				<div className='flex items-center space-x-8 text-sm font-semibold text-gray-700'>
 					<Link to='/' className='hover:text-indigo-800'>
 						Home
 					</Link>
-					<Link to='/about' className='hover:text-indigo-800'>
-						About
-					</Link>
-					<Link to='/services' className='hover:text-indigo-800'>
-						Services
-					</Link>
-					<Link to='/contact' className='hover:text-indigo-800'>
-						Contact Us
+					<Link to='/browse-art' className='hover:text-indigo-800'>
+						Browse Art
 					</Link>
 				</div>
 
 				{/* User Links & Cart Icon */}
 				<div className='flex items-center space-x-6'>
 					{user ? (
-						<button
-							onClick={onLogout}
-							className='flex items-center space-x-2 text-gray-800 hover:text-indigo-600'
-						>
-							<FaSignOutAlt />
-							<span>Logout</span>
-						</button>
+						<div className='flex items-center space-x-4'>
+							{/* Renters Only Links */}
+							{user.role === "RENTAL" && (
+								<>
+									<Link to='/my-rentals' className='hover:text-indigo-800'>
+										My Rentals
+									</Link>
+									<Link to='/rent-art' className='hover:text-indigo-800'>
+										Rent Art
+									</Link>
+								</>
+							)}
+
+							{/* Artists Only Links */}
+							{user.role === "ARTIST" && (
+								<>
+									<Link to='/my-art' className='hover:text-indigo-800'>
+										My Art
+									</Link>
+									<Link to='/upload-art' className='hover:text-indigo-800'>
+										Upload Art
+									</Link>
+								</>
+							)}
+
+							<Link to='/profile' className='hover:text-indigo-800'>
+								Profile
+							</Link>
+							<button
+								onClick={onLogout}
+								className='flex items-center space-x-2 text-gray-800 hover:text-indigo-600'
+							>
+								<FaSignOutAlt />
+								<span>Logout</span>
+							</button>
+						</div>
 					) : (
 						<div className='flex space-x-4'>
 							<Link
@@ -130,13 +150,42 @@ const Header = () => {
 				{/* Login, Logout, Register Buttons */}
 				<div className='flex flex-wrap items-center justify-center space-x-4 space-y-2 mt-4'>
 					{user ? (
-						<button
-							onClick={onLogout}
-							className='flex items-center text-gray-800 hover:text-indigo-600 space-x-2'
-						>
-							<FaSignOutAlt />
-							<span>Logout</span>
-						</button>
+						<div className='flex flex-col space-y-2'>
+							{/* Renters Only Links */}
+							{user.role === "RENTAL" && (
+								<>
+									<Link to='/my-rentals' className='hover:text-indigo-800'>
+										My Rentals
+									</Link>
+									<Link to='/rent-art' className='hover:text-indigo-800'>
+										Rent Art
+									</Link>
+								</>
+							)}
+
+							{/* Artists Only Links */}
+							{user.role === "ARTIST" && (
+								<>
+									<Link to='/my-art' className='hover:text-indigo-800'>
+										My Art
+									</Link>
+									<Link to='/upload-art' className='hover:text-indigo-800'>
+										Upload Art
+									</Link>
+								</>
+							)}
+
+							<Link to='/profile' className='hover:text-indigo-800'>
+								Profile
+							</Link>
+							<button
+								onClick={onLogout}
+								className='flex items-center text-gray-800 hover:text-indigo-600 space-x-2'
+							>
+								<FaSignOutAlt />
+								<span>Logout</span>
+							</button>
+						</div>
 					) : (
 						<>
 							<Link
@@ -162,7 +211,7 @@ const Header = () => {
 					<input
 						type='text'
 						className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500'
-						placeholder='Search for art...'
+						placeholder='Search art...'
 					/>
 					<button
 						type='submit'
@@ -187,41 +236,107 @@ const Header = () => {
 							Home
 						</Link>
 						<Link
-							to='/about'
+							to='/browse-art'
 							className='hover:text-indigo-800'
 							onClick={() => {
 								handleMenuClose();
 							}}
 						>
-							About
+							Browse Art
 						</Link>
-						<Link
-							to='/services'
-							className='hover:text-indigo-800'
-							onClick={() => {
-								handleMenuClose();
-							}}
-						>
-							Services
-						</Link>
-						<Link
-							to='/contact'
-							className='hover:text-indigo-800'
-							onClick={() => {
-								handleMenuClose();
-							}}
-						>
-							Contact Us
-						</Link>
-						<Link
-							to='/cart'
-							className='hover:text-indigo-800'
-							onClick={() => {
-								handleMenuClose();
-							}}
-						>
-							Cart
-						</Link>
+						{user && (
+							<>
+								{/* Renters Only Links */}
+								{user.role === "RENTAL" && (
+									<>
+										<Link
+											to='/my-rentals'
+											className='hover:text-indigo-800'
+											onClick={() => {
+												handleMenuClose();
+											}}
+										>
+											My Rentals
+										</Link>
+										<Link
+											to='/rent-art'
+											className='hover:text-indigo-800'
+											onClick={() => {
+												handleMenuClose();
+											}}
+										>
+											Rent Art
+										</Link>
+									</>
+								)}
+
+								{/* Artists Only Links */}
+								{user.role === "ARTIST" && (
+									<>
+										<Link
+											to='/my-art'
+											className='hover:text-indigo-800'
+											onClick={() => {
+												handleMenuClose();
+											}}
+										>
+											My Art
+										</Link>
+										<Link
+											to='/upload-art'
+											className='hover:text-indigo-800'
+											onClick={() => {
+												handleMenuClose();
+											}}
+										>
+											Upload Art
+										</Link>
+									</>
+								)}
+
+								<Link
+									to='/profile'
+									className='hover:text-indigo-800'
+									onClick={() => {
+										handleMenuClose();
+									}}
+								>
+									Profile
+								</Link>
+								<button
+									onClick={onLogout}
+									className='flex items-center text-gray-800 hover:text-indigo-600 space-x-2'
+								>
+									<FaSignOutAlt />
+									<span>Logout</span>
+								</button>
+							</>
+						)}
+
+						{!user && (
+							<>
+								<Link
+									to='/login'
+									className='text-gray-800 hover:text-indigo-800 flex items-center space-x-2'
+									onClick={() => {
+										handleMenuClose();
+									}}
+								>
+									<FaSignInAlt />
+									<span>Login</span>
+								</Link>
+								<Link
+									to='/signup'
+									className='text-gray-800 hover:text-indigo-800 flex items-center space-x-2'
+									onClick={() => {
+										handleMenuClose();
+									}}
+								>
+									<FaUser />
+									<span>Register</span>
+								</Link>
+							</>
+						)}
 					</nav>
 				</div>
 			)}
