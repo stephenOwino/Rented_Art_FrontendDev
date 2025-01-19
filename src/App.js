@@ -47,10 +47,12 @@ function App() {
 								<Route path='/' element={<Home />} />
 								<Route path='/login' element={<Login />} />
 								<Route path='/signup' element={<Signup />} />
+								<Route path='/cart' element={<Cart />} />
+								<Route path='/payment/page' element={<PaymentPage />} />
+								<Route path='/order' element={<Order />} />
+
 								{/* Protected Routes */}
 								<Route element={<ProtectedRoutes />}>
-									<Route path='/cart' element={<Cart />} />
-									<Route path='/payment/page' element={<PaymentPage />} />
 									<Route path='/dd' element={<Cartbody />} />
 									<Route path='/about' element={<About />} />
 									<Route path='/contact' element={<Contact />} />
@@ -59,7 +61,6 @@ function App() {
 									<Route path='/artist-info' element={<ArtistInfo />} />
 									<Route path='/recommendations' element={<Recommendation />} />
 									<Route path='/artpieces' element={<ArtPieces />} />
-									<Route path='/order' element={<Order />} />
 									<Route path='/products' element={<ProductPage />} />
 									<Route path='/paintings' element={<Paintings />} />
 									<Route path='/artist/:id' element={<ArtistProfile />} />

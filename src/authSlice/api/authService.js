@@ -1,29 +1,25 @@
 import axios from "axios";
 
-const API_URL = "https://rented-art-server.onrender.com/api/users/register";
-const LOGIN_URL = "https://rented-art-server.onrender.com/api/users/login";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
-//REGISTER USER
 const register = async (userData) => {
-	const responce = await axios.post(API_URL, userData);
+	const response = await axios.post(`${API_BASE_URL}/users/register`, userData);
 
-	if (responce.data) {
-		localStorage.setItem("user", JSON.stringify(responce.data));
+	if (response.data) {
+		localStorage.setItem("user", JSON.stringify(response.data));
 	}
-	return responce.data;
+	return response.data;
 };
 
-//LOGIN USER
 const login = async (userData) => {
-	const responce = await axios.post(LOGIN_URL, userData);
+	const response = await axios.post(`${API_BASE_URL}/users/login`, userData);
 
-	if (responce.data) {
-		localStorage.setItem("user", JSON.stringify(responce.data));
+	if (response.data) {
+		localStorage.setItem("user", JSON.stringify(response.data));
 	}
-	return responce.data;
+	return response.data;
 };
 
-//LOGOUT USER
 const logout = () => {
 	localStorage.removeItem("user");
 };
