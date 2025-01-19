@@ -10,7 +10,15 @@ const PaymentForm = () => {
 		description: "Test Payment",
 	});
 
-	const [paymentStatus, setPaymentStatus] = useState(null); // For tracking payment status
+	const [paymentStatus, setPaymentStatus] = useState(null); // Tracks payment status
+
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setOrderDetails((prevDetails) => ({
+			...prevDetails,
+			[name]: value,
+		}));
+	};
 
 	const handlePayment = async (e) => {
 		e.preventDefault();
@@ -23,7 +31,7 @@ const PaymentForm = () => {
 			if (response.data.redirectUrl) {
 				window.location.href = response.data.redirectUrl; // Redirect to PayPal approval page
 			} else {
-				setPaymentStatus("failure"); // In case there's no redirect URL
+				setPaymentStatus("failure"); // Handle missing redirect URL
 			}
 		} catch (error) {
 			console.error("Error initiating payment:", error);
@@ -64,9 +72,7 @@ const PaymentForm = () => {
 						id='price'
 						name='price'
 						value={orderDetails.price}
-						onChange={(e) =>
-							setOrderDetails({ ...orderDetails, price: e.target.value })
-						}
+						onChange={handleInputChange}
 						className='w-full p-2 border border-gray-300 rounded'
 					/>
 				</div>
@@ -79,9 +85,7 @@ const PaymentForm = () => {
 						id='currency'
 						name='currency'
 						value={orderDetails.currency}
-						onChange={(e) =>
-							setOrderDetails({ ...orderDetails, currency: e.target.value })
-						}
+						onChange={handleInputChange}
 						className='w-full p-2 border border-gray-300 rounded'
 					/>
 				</div>
@@ -94,9 +98,7 @@ const PaymentForm = () => {
 						id='method'
 						name='method'
 						value={orderDetails.method}
-						onChange={(e) =>
-							setOrderDetails({ ...orderDetails, method: e.target.value })
-						}
+						onChange={handleInputChange}
 						className='w-full p-2 border border-gray-300 rounded'
 					/>
 				</div>
@@ -109,9 +111,7 @@ const PaymentForm = () => {
 						id='intent'
 						name='intent'
 						value={orderDetails.intent}
-						onChange={(e) =>
-							setOrderDetails({ ...orderDetails, intent: e.target.value })
-						}
+						onChange={handleInputChange}
 						className='w-full p-2 border border-gray-300 rounded'
 					/>
 				</div>
@@ -124,9 +124,7 @@ const PaymentForm = () => {
 						id='description'
 						name='description'
 						value={orderDetails.description}
-						onChange={(e) =>
-							setOrderDetails({ ...orderDetails, description: e.target.value })
-						}
+						onChange={handleInputChange}
 						className='w-full p-2 border border-gray-300 rounded'
 					/>
 				</div>
