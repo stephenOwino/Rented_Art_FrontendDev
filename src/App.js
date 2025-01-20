@@ -31,7 +31,7 @@ import Contact from "./components/Contact";
 import Header from "./components/header";
 import ServicesPage from "./pages/Servicesp";
 import ProtectedRoutes from "./pages/ProtectedRoutes/protectedRoutes";
-
+import CheckoutForm from "./components/CheckoutForm";
 function App() {
 	return (
 		<div className='flex flex-col text-center'>
@@ -50,6 +50,7 @@ function App() {
 								<Route path='/cart' element={<Cart />} />
 								<Route path='/payment/page' element={<PaymentPage />} />
 								<Route path='/order' element={<Order />} />
+								<Route path='/checkout' element={<CheckoutForm />} />
 
 								{/* Protected Routes */}
 								<Route element={<ProtectedRoutes />}>
