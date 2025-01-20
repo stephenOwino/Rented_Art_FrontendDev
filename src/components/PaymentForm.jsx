@@ -1,33 +1,41 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useEffect, useRef } from "react";
 
 const PaymentForm = () => {
-	const [orderDetails, setOrderDetails] = useState({
-		price: "10",
-		currency: "USD",
-		method: "paypal",
-		intent: "sale",
-		description: "Test Payment",
-	});
+	const paypalRef = useRef();
 
-	const handlePayment = async (e) => {
-		e.preventDefault();
-		try {
-			const response = await axios.post(
-				"https://rented-art-server.onrender.com/pay", // Backend URL for payment initiation
-				orderDetails
-			);
-
-			if (response.data.redirectUrl) {
-				window.location.href = response.data.redirectUrl; // Redirect to PayPal approval page
-			}
-		} catch (error) {
-			console.error("Error initiating payment:", error);
-		}
-	};
+	useEffect(() => {
+		// Load PayPal Buttons
+		window.paypal
+			.Buttons({
+				createOrder: (data, actions) => {
+					return actions.order.create({
+						purchase_units: [
+							{
+								description: "Test Payment", // Can be dynamic based on your form data
+								amount: {
+									currency_code: "USD", // Dynamic based on selected currency
+									value: "10.00", // Dynamic based on selected total
+								},
+							},
+						],
+					});
+				},
+				onApprove: async (data, actions) => {
+					const order = await actions.order.capture();
+					console.log("Payment Successful:", order);
+					// Here, you can display a success message, or redirect the user.
+					alert("Payment Successful!");
+				},
+				onError: (err) => {
+					console.error("Error during payment:", err);
+					alert("Payment Failed");
+				},
+			})
+			.render(paypalRef.current); // Render PayPal button here
+	}, []);
 
 	return (
-		<form onSubmit={handlePayment} className='space-y-4'>
+		<form className='space-y-4'>
 			<h3 className='text-2xl font-bold'>Payment</h3>
 			<label className='block'>Accepted Cards</label>
 			<div className='flex space-x-4 mb-4 text-2xl'>
@@ -37,87 +45,12 @@ const PaymentForm = () => {
 				<i className='fa fa-cc-discover text-orange-500'></i>
 			</div>
 
-			<div>
-				<label htmlFor='price' className='block mb-1'>
-					Total
-				</label>
-				<input
-					type='text'
-					id='price'
-					name='price'
-					value={orderDetails.price}
-					onChange={(e) =>
-						setOrderDetails({ ...orderDetails, price: e.target.value })
-					}
-					className='w-full p-2 border border-gray-300 rounded'
-				/>
+			<div className='mb-4'>
+				<p className='font-bold'>Total: $10.00</p>
 			</div>
-			<div>
-				<label htmlFor='currency' className='block mb-1'>
-					Currency
-				</label>
-				<input
-					type='text'
-					id='currency'
-					name='currency'
-					value={orderDetails.currency}
-					onChange={(e) =>
-						setOrderDetails({ ...orderDetails, currency: e.target.value })
-					}
-					className='w-full p-2 border border-gray-300 rounded'
-				/>
-			</div>
-			<div>
-				<label htmlFor='method' className='block mb-1'>
-					Payment Method
-				</label>
-				<input
-					type='text'
-					id='method'
-					name='method'
-					value={orderDetails.method}
-					onChange={(e) =>
-						setOrderDetails({ ...orderDetails, method: e.target.value })
-					}
-					className='w-full p-2 border border-gray-300 rounded'
-				/>
-			</div>
-			<div>
-				<label htmlFor='intent' className='block mb-1'>
-					Intent
-				</label>
-				<input
-					type='text'
-					id='intent'
-					name='intent'
-					value={orderDetails.intent}
-					onChange={(e) =>
-						setOrderDetails({ ...orderDetails, intent: e.target.value })
-					}
-					className='w-full p-2 border border-gray-300 rounded'
-				/>
-			</div>
-			<div>
-				<label htmlFor='description' className='block mb-1'>
-					Payment Description
-				</label>
-				<input
-					type='text'
-					id='description'
-					name='description'
-					value={orderDetails.description}
-					onChange={(e) =>
-						setOrderDetails({ ...orderDetails, description: e.target.value })
-					}
-					className='w-full p-2 border border-gray-300 rounded'
-				/>
-			</div>
-			<button
-				type='submit'
-				className='bg-green-500 text-white w-full p-2 rounded hover:bg-green-600'
-			>
-				Continue to checkout
-			</button>
+
+			{/* PayPal Button will be rendered here */}
+			<div ref={paypalRef}></div>
 		</form>
 	);
 };
